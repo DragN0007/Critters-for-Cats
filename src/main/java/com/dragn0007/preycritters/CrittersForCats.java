@@ -1,13 +1,10 @@
 package com.dragn0007.preycritters;
 
+import com.dragn0007.preycritters.blocks.CTCBlocks;
 import com.dragn0007.preycritters.entities.EntityTypes;
 import com.dragn0007.preycritters.items.CTCItemGroup;
 import com.dragn0007.preycritters.items.CTCItems;
 import com.dragn0007.preycritters.util.CrittersForCatsCommonConfig;
-import net.minecraft.network.FriendlyByteBuf;
-import net.minecraft.network.syncher.EntityDataSerializer;
-import net.minecraft.network.syncher.EntityDataSerializers;
-import net.minecraft.resources.ResourceLocation;
 import net.minecraftforge.common.MinecraftForge;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.fml.ModLoadingContext;
@@ -26,7 +23,7 @@ public class CrittersForCats
 
         CTCItems.register(eventBus);
         CTCItemGroup.register(eventBus);
-//        CTCBlocks.register(eventBus);
+        CTCBlocks.register(eventBus);
         EntityTypes.ENTITY_TYPES.register(eventBus);
 //        BIOME_MODIFIER_SERIALIZERS.register(eventBus);
 

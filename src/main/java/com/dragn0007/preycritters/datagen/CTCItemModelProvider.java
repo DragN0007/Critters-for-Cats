@@ -10,8 +10,8 @@ import net.minecraftforge.client.model.generators.ItemModelProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.registries.RegistryObject;
 
-public class LOItemModelProvider extends ItemModelProvider {
-    public LOItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
+public class CTCItemModelProvider extends ItemModelProvider {
+    public CTCItemModelProvider(PackOutput output, ExistingFileHelper existingFileHelper) {
         super(output, CrittersForCats.MODID, existingFileHelper);
     }
 

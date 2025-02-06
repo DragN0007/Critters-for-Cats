@@ -20,6 +20,7 @@ public class JsonDataGenerator {
         ExistingFileHelper existingFileHelper = event.getExistingFileHelper();
         CompletableFuture<HolderLookup.Provider> lookupProvider = event.getLookupProvider();
 
-        generator.addProvider(event.includeClient(), new LOItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeClient(), new CTCItemModelProvider(packOutput, existingFileHelper));
+        generator.addProvider(event.includeServer(), new CTCWorldGenerator(packOutput, lookupProvider));
     }
 }

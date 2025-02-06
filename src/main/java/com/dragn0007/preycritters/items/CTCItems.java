@@ -2,12 +2,10 @@ package com.dragn0007.preycritters.items;
 
 import com.dragn0007.preycritters.CrittersForCats;
 import com.dragn0007.preycritters.entities.EntityTypes;
-import com.dragn0007.preycritters.items.custom.MouseBileItem;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.MilkBucketItem;
 import net.minecraftforge.common.ForgeSpawnEggItem;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
