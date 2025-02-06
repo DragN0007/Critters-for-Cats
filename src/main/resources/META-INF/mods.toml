@@ -9,7 +9,7 @@ displayName="DragN's Livestock Overhaul!"
 logoFile="prey_critters_logo.png"
 authors="DragN0007"
 description='''
-Adds little animals that are perfect for felines to munch on!
+Adds little animals that are perfect prey for felines to munch on!
 '''
 [[dependencies.preycritters]]
 modId = "forge"

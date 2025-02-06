@@ -60,7 +60,7 @@ public class Mouse extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Ocelot.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Villager.class, 15.0F, 1.8F, 1.8F));
 
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 1.8F, 1.8F, entity ->
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 2.2F, 2.2F, entity ->
 				(entity instanceof Player && !entity.isCrouching())
 		));
 	}
@@ -81,7 +81,7 @@ public class Mouse extends Animal implements GeoEntity {
 		if (tAnimationState.isMoving()) {
 			if (currentSpeed > speedThreshold) {
 				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(3.5);
+				controller.setAnimationSpeed(4.0);
 			} else {
 				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
 				controller.setAnimationSpeed(2.0);

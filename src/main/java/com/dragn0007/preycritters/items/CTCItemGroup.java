@@ -19,7 +19,9 @@ public class CTCItemGroup {
                     .displayItems((displayParameters, output) -> {
 
                         output.accept(CTCItems.MOUSE_SPAWN_EGG.get());
-
+                        output.accept(CTCItems.MOUSE.get());
+                        output.accept(CTCItems.MOUSE_BILE.get());
+                        output.accept(CTCItems.MOUSE_EYE.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

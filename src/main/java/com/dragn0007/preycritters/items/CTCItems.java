@@ -25,7 +25,7 @@ public class CTCItems {
 
     //Food
     public static final RegistryObject<Item> MOUSE = ITEMS.register("mouse",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).meat().build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).meat().build())));
     public static final RegistryObject<Item> MOUSE_BILE = ITEMS.register("mouse_bile",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
     public static final RegistryObject<Item> MOUSE_EYE = ITEMS.register("mouse_eye",
