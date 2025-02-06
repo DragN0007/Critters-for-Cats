@@ -20,6 +20,7 @@ public class CTCItemModelProvider extends ItemModelProvider {
         simpleItem(CTCItems.MOUSE);
         simpleItem(CTCItems.MOUSE_BILE);
         simpleItem(CTCItems.MOUSE_EYE);
+        simpleItem(CTCItems.SQUIRREL);
 
         simpleItem(CTCItems.WHITE_BIRD_EGG);
         simpleItem(CTCItems.BLUE_BIRD_EGG);

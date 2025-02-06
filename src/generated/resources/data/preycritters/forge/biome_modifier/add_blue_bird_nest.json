@@ -1,6 +1,6 @@
 {
   "type": "forge:add_features",
-  "biomes": "#forge:is_dense",
+  "biomes": "#minecraft:is_forest",
   "features": "preycritters:blue_bird_nest_placed",
   "step": "vegetal_decoration"
 }

@@ -1,4 +1,4 @@
-package com.dragn0007.preycritters.entities.mouse;
+package com.dragn0007.preycritters.entities.squirrel;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -15,6 +15,8 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.navigation.PathNavigation;
+import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
@@ -34,21 +36,21 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class Mouse extends Animal implements GeoEntity {
+public class Squirrel extends Animal implements GeoEntity {
 
-	public Mouse(EntityType<? extends Mouse> type, Level level) {
+	public Squirrel(EntityType<? extends Squirrel> type, Level level) {
 		super(type, level);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 3.0D)
+				.add(Attributes.MAX_HEALTH, 5.0D)
 				.add(Attributes.MOVEMENT_SPEED, 0.21F);
 	}
 
 	public void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new PanicGoal(this, 2.2F));
+		this.goalSelector.addGoal(1, new PanicGoal(this, 2.0F));
 		this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -60,14 +62,18 @@ public class Mouse extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Ocelot.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Villager.class, 15.0F, 1.8F, 1.8F));
 
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 2.2F, 2.2F, entity ->
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 2.0F, 2.0F, entity ->
 				(entity instanceof Player && !entity.isCrouching())
 		));
 	}
 
+	protected PathNavigation createNavigation(Level navigation) {
+		return new WallClimberNavigation(this, navigation);
+	}
+
 	@Override
 	public float getStepHeight() {
-		return 1.6F;
+		return 2F;
 	}
 
 	private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
@@ -80,11 +86,11 @@ public class Mouse extends Animal implements GeoEntity {
 
 		if (tAnimationState.isMoving()) {
 			if (currentSpeed > speedThreshold) {
-				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(4.0);
+				controller.setAnimation(RawAnimation.begin().then("run", Animation.LoopType.LOOP));
+				controller.setAnimationSpeed(3.5);
 			} else {
 				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(2.0);
+				controller.setAnimationSpeed(1.5);
 			}
 		} else {
 			controller.setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
@@ -129,10 +135,10 @@ public class Mouse extends Animal implements GeoEntity {
 
 	// Generates the base texture
 	public ResourceLocation getTextureLocation() {
-		return MouseModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
+		return SquirrelModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
 	}
 
-	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Mouse.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Squirrel.class, EntityDataSerializers.INT);
 
 	public int getVariant() {
 		return this.entityData.get(VARIANT);
@@ -164,7 +170,7 @@ public class Mouse extends Animal implements GeoEntity {
 			data = new AgeableMobGroupData(0.2F);
 		}
 		Random random = new Random();
-		setVariant(random.nextInt(MouseModel.Variant.values().length));
+		setVariant(random.nextInt(SquirrelModel.Variant.values().length));
 
 		return super.finalizeSpawn(serverLevelAccessor, instance, spawnType, data, tag);
 	}
