@@ -1,0 +1,10 @@
+{
+  "type": "preycritters:spawn_biome_modifier",
+  "biomes": [
+    "minecraft:tag/forest",
+    "minecraft:tag/taiga",
+    "minecraft:tag/savanna",
+    "minecraft:tag/hill",
+    "minecraft:plains"
+  ]
+}

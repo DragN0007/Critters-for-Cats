@@ -14,7 +14,7 @@ public class CrittersForCatsCommonConfig {
         BUILDER.push("Mice");
 
         MICE_WEIGHT = BUILDER.comment("How often should Mice spawn? Default is 3.")
-                .define("Mice Spawn Weight", 3);
+                .define("Mice Spawn Weight", 30);
         MICE_MIN = BUILDER.comment("How many Mice, minimum, should be able to spawn in a group? Default is 1.")
                 .define("Mice Spawn Min", 1);
         MICE_MAX = BUILDER.comment("How many Mice, maximum, should be able to spawn in a group? Default is 3.")

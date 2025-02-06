@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_dense",
+  "features": "preycritters:white_bird_nest_placed",
+  "step": "vegetal_decoration"
+}

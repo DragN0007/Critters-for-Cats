@@ -29,6 +29,12 @@ public class CTCItems {
     public static final RegistryObject<Item> MOUSE_EYE = ITEMS.register("mouse_eye",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 0.3F).build())));
 
+
+    public static final RegistryObject<Item> WHITE_BIRD_EGG = ITEMS.register("white_bird_egg",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
+    public static final RegistryObject<Item> BLUE_BIRD_EGG = ITEMS.register("blue_bird_egg",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
+
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);
     }

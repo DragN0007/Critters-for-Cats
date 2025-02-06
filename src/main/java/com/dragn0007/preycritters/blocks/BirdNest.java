@@ -1,6 +1,7 @@
 package com.dragn0007.preycritters.blocks;
 
 import net.minecraft.core.BlockPos;
+import net.minecraft.tags.BlockTags;
 import net.minecraft.world.level.BlockGetter;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
@@ -18,5 +19,9 @@ public class BirdNest extends Block {
 
     public VoxelShape getShape(BlockState p_153474_, BlockGetter p_153475_, BlockPos p_153476_, CollisionContext p_153477_) {
         return AABB;
+    }
+
+    protected boolean mayPlaceOn(BlockState blockState, BlockGetter p_51043_, BlockPos p_51044_) {
+        return !blockState.is(Blocks.WATER);
     }
 }

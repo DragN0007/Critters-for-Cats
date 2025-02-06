@@ -1,9 +1,19 @@
 {
   "itemGroup.preycritters": "Critters For Cats",
 
+
   "item.preycritters.mouse_spawn_egg": "Mouse Spawn Egg",
+
+
   "entity.preycritters.mouse": "Mouse",
   "item.preycritters.mouse": "Raw Mouse",
   "item.preycritters.mouse_bile": "Mouse Bile",
-  "item.preycritters.mouse_eye": "Mouse Eye"
+  "item.preycritters.mouse_eye": "Mouse Eye",
+
+  "item.preycritters.white_bird_egg": "White Bird Egg",
+  "item.preycritters.blue_bird_egg": "Blue Bird Egg",
+
+
+  "block.preycritters.white_bird_nest": "Bird Nest",
+  "block.preycritters.blue_bird_nest": "Bird Nest"
 }

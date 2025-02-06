@@ -1,0 +1,6 @@
+{
+  "parent": "preycritters:block/bird_nest",
+  "textures": {
+    "nest": "preycritters:block/blue_bird_nest"
+  }
+}

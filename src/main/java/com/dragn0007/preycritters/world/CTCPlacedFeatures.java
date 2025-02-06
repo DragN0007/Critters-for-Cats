@@ -22,12 +22,12 @@ public class CTCPlacedFeatures {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
 
         register(context, WHITE_BIRD_NEST_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.WHITE_BIRD_NEST),
-                List.of(RarityFilter.onAverageOnceEvery(8),
-                        InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(4),
+                        InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 
         register(context, BLUE_BIRD_NEST_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.BLUE_BIRD_NEST),
-                List.of(RarityFilter.onAverageOnceEvery(8),
-                        InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP, BiomeFilter.biome()));
+                List.of(RarityFilter.onAverageOnceEvery(4),
+                        InSquarePlacement.spread(), PlacementUtils.HEIGHTMAP_WORLD_SURFACE, BiomeFilter.biome()));
 
     }
 
