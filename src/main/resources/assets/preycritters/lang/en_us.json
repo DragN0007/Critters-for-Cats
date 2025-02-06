@@ -1,0 +1,9 @@
+{
+  "itemGroup.preycritters": "Critters For Cats",
+
+  "item.preycritters.mouse_spawn_egg": "Mouse Spawn Egg",
+  "entity.preycritters.mouse": "Mouse",
+  "item.preycritters.mouse": "Raw Mouse",
+  "item.preycritters.mouse_bile": "Mouse Bile",
+  "item.preycritters.mouse_eye": "Mouse Eye"
+}

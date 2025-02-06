@@ -1,0 +1,31 @@
+modLoader="javafml"
+loaderVersion="47,)"
+license="All Rights Reserved, DragN0007"
+#issueTrackerURL="https://discord.gg/2WznNTtVac"
+[[mods]]
+modId="preycritters"
+version="${1.0}"
+displayName="DragN's Livestock Overhaul!"
+logoFile="prey_critters_logo.png"
+authors="DragN0007"
+description='''
+Adds little animals that are perfect for felines to munch on!
+'''
+[[dependencies.preycritters]]
+modId = "forge"
+mandatory = true
+versionRange = "[47,)"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.preycritters]]
+modId = "minecraft"
+mandatory = true
+versionRange = "[1.20.1]"
+ordering = "NONE"
+side = "BOTH"
+[[dependencies.preycritters]]
+modId="geckolib"
+mandatory=true
+versionRange = "[4.4.4,)"
+ordering="NONE"
+side="BOTH"
