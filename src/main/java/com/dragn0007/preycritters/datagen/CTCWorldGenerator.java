@@ -4,7 +4,6 @@ import com.dragn0007.preycritters.CrittersForCats;
 import com.dragn0007.preycritters.world.BiomeHitter;
 import com.dragn0007.preycritters.world.CTCConfigFeatures;
 import com.dragn0007.preycritters.world.CTCPlacedFeatures;
-import com.dragn0007.preycritters.world.CreatureSpawnGeneration;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.core.RegistrySetBuilder;
 import net.minecraft.core.registries.Registries;

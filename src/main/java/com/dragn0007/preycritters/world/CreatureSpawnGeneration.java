@@ -16,42 +16,42 @@ import net.minecraftforge.common.world.ModifiableBiomeInfo;
 
 import java.util.List;
 
-public record CreatureSpawnGeneration(HolderSet<Biome> biomes) implements BiomeModifier {
+//public record CreatureSpawnGeneration(HolderSet<Biome> biomes) implements BiomeModifier {
 
-    public static List<MobSpawnSettings.SpawnerData> MOUSE_SPAWNS = List.of(
-            new MobSpawnSettings.SpawnerData(
-                    EntityTypes.MOUSE_ENTITY.get(),
-                    CrittersForCatsCommonConfig.MICE_WEIGHT.get(),
-                    CrittersForCatsCommonConfig.MICE_MIN.get(),
-                    CrittersForCatsCommonConfig.MICE_MAX.get())
-    );
-
-    public static List<MobSpawnSettings.SpawnerData> SQUIRREL_SPAWNS = List.of(
-            new MobSpawnSettings.SpawnerData(
-                    EntityTypes.SQUIRREL_ENTITY.get(),
-                    CrittersForCatsCommonConfig.SQUIRREL_WEIGHT.get(),
-                    CrittersForCatsCommonConfig.SQUIRREL_MIN.get(),
-                    CrittersForCatsCommonConfig.SQUIRREL_MAX.get())
-    );
-
-    @Override
-    public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
-        if(phase == Phase.ADD && biomes.contains(biome)) {
-            List<MobSpawnSettings.SpawnerData> spawner = builder.getMobSpawnSettings().getSpawner(MobCategory.CREATURE);
-
-            if(biome.is(BiomeTags.IS_FOREST) || biome.is(BiomeTags.IS_SAVANNA) || biome.is(BiomeTags.IS_HILL) || biome.is(Biomes.PLAINS)) {
-                spawner.addAll(MOUSE_SPAWNS);
-            }
-
-            if(biome.is(BiomeTags.IS_FOREST)) {
-                spawner.addAll(SQUIRREL_SPAWNS);
-            }
-
-        }
-    }
-
-    @Override
-    public Codec<? extends BiomeModifier> codec() {
-        return CrittersForCats.SPAWN_CODEC.get();
-    }
-}
+//    public static List<MobSpawnSettings.SpawnerData> MOUSE_SPAWNS = List.of(
+//            new MobSpawnSettings.SpawnerData(
+//                    EntityTypes.MOUSE_ENTITY.get(),
+//                    CrittersForCatsCommonConfig.MICE_WEIGHT.get(),
+//                    CrittersForCatsCommonConfig.MICE_MIN.get(),
+//                    CrittersForCatsCommonConfig.MICE_MAX.get())
+//    );
+//
+//    public static List<MobSpawnSettings.SpawnerData> SQUIRREL_SPAWNS = List.of(
+//            new MobSpawnSettings.SpawnerData(
+//                    EntityTypes.SQUIRREL_ENTITY.get(),
+//                    CrittersForCatsCommonConfig.SQUIRREL_WEIGHT.get(),
+//                    CrittersForCatsCommonConfig.SQUIRREL_MIN.get(),
+//                    CrittersForCatsCommonConfig.SQUIRREL_MAX.get())
+//    );
+//
+//    @Override
+//    public void modify(Holder<Biome> biome, Phase phase, ModifiableBiomeInfo.BiomeInfo.Builder builder) {
+//        if(phase == Phase.ADD && biomes.contains(biome)) {
+//            List<MobSpawnSettings.SpawnerData> spawner = builder.getMobSpawnSettings().getSpawner(MobCategory.CREATURE);
+//
+//            if(biome.is(BiomeTags.IS_FOREST) || biome.is(BiomeTags.IS_SAVANNA) || biome.is(BiomeTags.IS_HILL) || biome.is(Biomes.PLAINS)) {
+//                spawner.addAll(MOUSE_SPAWNS);
+//            }
+//
+//            if(biome.is(BiomeTags.IS_FOREST)) {
+//                spawner.addAll(SQUIRREL_SPAWNS);
+//            }
+//
+//        }
+//    }
+//
+//    @Override
+//    public Codec<? extends BiomeModifier> codec() {
+//        return CrittersForCats.SPAWN_CODEC.get();
+//    }
+//}

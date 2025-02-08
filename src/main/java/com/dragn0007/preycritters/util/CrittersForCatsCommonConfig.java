@@ -1,17 +1,18 @@
 package com.dragn0007.preycritters.util;
 
 import net.minecraftforge.common.ForgeConfigSpec;
+import net.minecraftforge.fml.config.ModConfig;
 
 public class CrittersForCatsCommonConfig {
     public static final ForgeConfigSpec.Builder BUILDER = new ForgeConfigSpec.Builder();
-    public static final ForgeConfigSpec SPEC;
+    public static ForgeConfigSpec SPEC;
 
-    public static final ForgeConfigSpec.ConfigValue<Integer> MICE_WEIGHT;
-    public static final ForgeConfigSpec.ConfigValue<Integer> MICE_MIN;
-    public static final ForgeConfigSpec.ConfigValue<Integer> MICE_MAX;
-    public static final ForgeConfigSpec.ConfigValue<Integer> SQUIRREL_WEIGHT;
-    public static final ForgeConfigSpec.ConfigValue<Integer> SQUIRREL_MIN;
-    public static final ForgeConfigSpec.ConfigValue<Integer> SQUIRREL_MAX;
+    public static ForgeConfigSpec.ConfigValue<Integer> MICE_WEIGHT;
+    public static ForgeConfigSpec.ConfigValue<Integer> MICE_MIN;
+    public static ForgeConfigSpec.ConfigValue<Integer> MICE_MAX;
+    public static ForgeConfigSpec.ConfigValue<Integer> SQUIRREL_WEIGHT;
+    public static ForgeConfigSpec.ConfigValue<Integer> SQUIRREL_MIN;
+    public static ForgeConfigSpec.ConfigValue<Integer> SQUIRREL_MAX;
 
     static {
         BUILDER.push("Mice");
@@ -34,4 +35,5 @@ public class CrittersForCatsCommonConfig {
 
         SPEC = BUILDER.build();
     }
+
 }
