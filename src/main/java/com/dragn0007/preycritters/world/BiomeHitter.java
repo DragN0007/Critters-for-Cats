@@ -2,14 +2,12 @@ package com.dragn0007.preycritters.world;
 
 import com.dragn0007.preycritters.CrittersForCats;
 import com.dragn0007.preycritters.entities.EntityTypes;
-import com.dragn0007.preycritters.util.CrittersForCatsCommonConfig;
 import net.minecraft.core.HolderSet;
 import net.minecraft.core.registries.Registries;
 import net.minecraft.data.worldgen.BootstapContext;
 import net.minecraft.resources.ResourceKey;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.tags.BiomeTags;
-import net.minecraft.world.level.biome.Biome;
 import net.minecraft.world.level.biome.MobSpawnSettings;
 import net.minecraft.world.level.levelgen.GenerationStep;
 import net.minecraftforge.common.Tags;
@@ -18,15 +16,20 @@ import net.minecraftforge.common.world.ForgeBiomeModifiers;
 import net.minecraftforge.registries.ForgeRegistries;
 
 import java.util.List;
-import java.util.stream.Collectors;
 
 public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> ADD_WHITE_BIRD_NEST = registerKey("add_white_bird_nest");
     public static final ResourceKey<BiomeModifier> ADD_BLUE_BIRD_NEST = registerKey("add_blue_bird_nest");
+    public static final ResourceKey<BiomeModifier> ADD_DIRT_VOLE_BURROW = registerKey("add_dirt_vole_burrow");
+    public static final ResourceKey<BiomeModifier> ADD_SNOW_VOLE_BURROW = registerKey("add_snow_vole_burrow");
 
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_FORESTS = registerKey("spawn_mouse_forests");
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_HILLS = registerKey("spawn_mouse_hills");
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_PLAINS = registerKey("spawn_mouse_plains");
+    public static final ResourceKey<BiomeModifier> SPAWN_SQUIRREL_FORESTS = registerKey("spawn_squirrel_forests");
+    public static final ResourceKey<BiomeModifier> SPAWN_VOLE_TAIGAS = registerKey("spawn_vole_taigas");
+    public static final ResourceKey<BiomeModifier> SPAWN_VOLE_SNOWY = registerKey("spawn_vole_snowy");
+    public static final ResourceKey<BiomeModifier> SPAWN_VOLE_FORESTS = registerKey("spawn_vole_forests");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -41,6 +44,16 @@ public class BiomeHitter {
         context.register(ADD_BLUE_BIRD_NEST, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST),
                 HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.BLUE_BIRD_NEST_PLACED)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_DIRT_VOLE_BURROW, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.DIRT_VOLE_BURROW_PLACED)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_SNOW_VOLE_BURROW, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_SNOWY),
+                HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.SNOW_VOLE_BURROW_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
 
@@ -66,9 +79,41 @@ public class BiomeHitter {
                         1,
                         3
                 ))));
+
+
+        context.register(SPAWN_SQUIRREL_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SQUIRREL_ENTITY.get(),
+                        8,
+                        1,
+                        2
+                ))));
+
+
+        context.register(SPAWN_VOLE_TAIGAS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_TAIGA),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.VOLE_ENTITY.get(),
+                        8,
+                        1,
+                        1
+                ))));
+        context.register(SPAWN_VOLE_SNOWY, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_SNOWY),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.VOLE_ENTITY.get(),
+                        6,
+                        1,
+                        1
+                ))));
+        context.register(SPAWN_VOLE_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.VOLE_ENTITY.get(),
+                        4,
+                        1,
+                        1
+                ))));
     }
 
-    private static ResourceKey<BiomeModifier> registerKey(String name) {
+    public static ResourceKey<BiomeModifier> registerKey(String name) {
         return ResourceKey.create(ForgeRegistries.Keys.BIOME_MODIFIERS, new ResourceLocation(CrittersForCats.MODID, name));
     }
 }

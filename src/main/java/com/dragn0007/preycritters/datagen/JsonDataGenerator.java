@@ -22,5 +22,6 @@ public class JsonDataGenerator {
 
         generator.addProvider(event.includeClient(), new CTCItemModelProvider(packOutput, existingFileHelper));
         generator.addProvider(event.includeServer(), new CTCWorldGenerator(packOutput, lookupProvider));
+        generator.addProvider(event.includeServer(), new CTCRecipeMaker(packOutput));
     }
 }

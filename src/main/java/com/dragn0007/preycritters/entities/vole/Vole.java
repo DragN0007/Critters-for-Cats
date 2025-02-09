@@ -1,6 +1,8 @@
-package com.dragn0007.preycritters.entities.squirrel;
+package com.dragn0007.preycritters.entities.vole;
 
+import com.dragn0007.preycritters.blocks.VoleBurrow;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -9,20 +11,23 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.InfestedBlock;
 import net.minecraft.world.level.block.state.BlockState;
+import net.minecraftforge.common.Tags;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -34,18 +39,19 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 import java.util.Random;
 
-public class Squirrel extends Animal implements GeoEntity {
+public class Vole extends Animal implements GeoEntity {
 
-	public Squirrel(EntityType<? extends Squirrel> type, Level level) {
+	public Vole(EntityType<? extends Vole> type, Level level) {
 		super(type, level);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 5.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.21F);
+				.add(Attributes.MAX_HEALTH, 3.5D)
+				.add(Attributes.MOVEMENT_SPEED, 0.20F);
 	}
 
 	public void registerGoals() {
@@ -55,6 +61,8 @@ public class Squirrel extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+
+		this.goalSelector.addGoal(2, new Vole.VoleBurrowBackGoal(this));
 
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Wolf.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Fox.class, 15.0F, 1.8F, 1.8F));
@@ -67,13 +75,9 @@ public class Squirrel extends Animal implements GeoEntity {
 		));
 	}
 
-	public PathNavigation createNavigation(Level navigation) {
-		return new WallClimberNavigation(this, navigation);
-	}
-
 	@Override
 	public float getStepHeight() {
-		return 2F;
+		return 1.6F;
 	}
 
 	public final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
@@ -86,11 +90,11 @@ public class Squirrel extends Animal implements GeoEntity {
 
 		if (tAnimationState.isMoving()) {
 			if (currentSpeed > speedThreshold) {
-				controller.setAnimation(RawAnimation.begin().then("run", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(3.5);
+				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
+				controller.setAnimationSpeed(4.0);
 			} else {
 				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(1.5);
+				controller.setAnimationSpeed(2.0);
 			}
 		} else {
 			controller.setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
@@ -108,6 +112,63 @@ public class Squirrel extends Animal implements GeoEntity {
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {
 		return this.geoCache;
+	}
+
+	public float getWalkTargetValue(BlockPos pos, LevelReader levelReader) {
+		return VoleBurrow.isCompatibleBurrow(levelReader.getBlockState(pos.below())) ? 10.0F : super.getWalkTargetValue(pos, levelReader);
+	}
+
+	static class VoleBurrowBackGoal extends RandomStrollGoal {
+		@Nullable
+		public Direction selectedDirection;
+		public boolean goBackToBurrow;
+
+		public VoleBurrowBackGoal(Vole vole) {
+			super(vole, 1.0D, 10);
+			this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+		}
+
+		public boolean canUse() {
+			if (this.mob.getTarget() != null) {
+				return false;
+			} else if (!this.mob.getNavigation().isDone()) {
+				return false;
+			} else {
+				RandomSource randomsource = this.mob.getRandom();
+				if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.mob.level(), this.mob) && randomsource.nextInt(reducedTickDelay(10)) == 0) {
+					this.selectedDirection = Direction.getRandom(randomsource);
+					BlockPos blockpos = BlockPos.containing(this.mob.getX(), this.mob.getY() + 0.5D, this.mob.getZ()).relative(this.selectedDirection);
+					BlockState blockstate = this.mob.level().getBlockState(blockpos);
+					if (InfestedBlock.isCompatibleHostBlock(blockstate)) {
+						this.goBackToBurrow = true;
+						return true;
+					}
+				}
+
+				this.goBackToBurrow = false;
+				return super.canUse();
+			}
+		}
+
+		public boolean canContinueToUse() {
+			return !this.goBackToBurrow && super.canContinueToUse();
+		}
+
+		public void start() {
+			if (!this.goBackToBurrow) {
+				super.start();
+			} else {
+				LevelAccessor levelaccessor = this.mob.level();
+				BlockPos blockpos = BlockPos.containing(this.mob.getX(), this.mob.getY() + 0.5D, this.mob.getZ()).relative(this.selectedDirection);
+				BlockState blockstate = levelaccessor.getBlockState(blockpos);
+				if (VoleBurrow.isCompatibleBurrow(blockstate)) {
+					levelaccessor.setBlock(blockpos, VoleBurrow.infestedStateByHost(blockstate), 3);
+					this.mob.spawnAnim();
+					this.mob.discard();
+				}
+
+			}
+		}
 	}
 
 	public SoundEvent getAmbientSound() {
@@ -135,10 +196,10 @@ public class Squirrel extends Animal implements GeoEntity {
 
 	// Generates the base texture
 	public ResourceLocation getTextureLocation() {
-		return SquirrelModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
+		return VoleModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
 	}
 
-	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Squirrel.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Vole.class, EntityDataSerializers.INT);
 
 	public int getVariant() {
 		return this.entityData.get(VARIANT);
@@ -169,8 +230,14 @@ public class Squirrel extends Animal implements GeoEntity {
 		if (data == null) {
 			data = new AgeableMobGroupData(0.2F);
 		}
-		Random random = new Random();
-		setVariant(random.nextInt(SquirrelModel.Variant.values().length));
+
+		if (this.level().getBiome(this.blockPosition()).is(Tags.Biomes.IS_SNOWY) || this.level().getBiome(this.blockPosition()).is(Tags.Biomes.IS_CONIFEROUS)) {
+			this.setVariant(4);
+		} else {
+			Random random = new Random();
+			setVariant(random.nextInt(VoleModel.Variant.values().length));
+		}
+
 
 		return super.finalizeSpawn(serverLevelAccessor, instance, spawnType, data, tag);
 	}

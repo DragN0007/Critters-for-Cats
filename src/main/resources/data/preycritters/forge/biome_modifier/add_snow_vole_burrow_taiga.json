@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "minecraft:taiga",
+  "features": "preycritters:dirt_vole_burrow_placed",
+  "step": "vegetal_decoration"
+}

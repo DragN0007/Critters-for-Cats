@@ -49,45 +49,9 @@
               }
             }
           ],
-          "name": "preycritters:mouse"
+          "name": "preycritters:vole"
         }
       ]
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "preycritters:mouse_bile",
-          "functions": [],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.25
-            }
-          ]
-        }
-      ],
-      "functions": [],
-      "conditions": []
-    },
-    {
-      "rolls": 1,
-      "entries": [
-        {
-          "type": "minecraft:item",
-          "name": "preycritters:mouse_eye",
-          "functions": [],
-          "conditions": [
-            {
-              "condition": "minecraft:random_chance",
-              "chance": 0.10
-            }
-          ]
-        }
-      ],
-      "functions": [],
-      "conditions": []
     },
     {
       "rolls": 1,

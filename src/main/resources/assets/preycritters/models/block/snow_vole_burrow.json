@@ -1,0 +1,6 @@
+{
+  "parent": "preycritters:block/vole_burrow",
+  "textures": {
+    "burrow": "preycritters:block/snow_vole_burrow"
+  }
+}

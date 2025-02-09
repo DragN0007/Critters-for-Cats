@@ -5,6 +5,8 @@ import com.dragn0007.preycritters.items.CTCItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
+import net.minecraft.world.level.block.Blocks;
+import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -20,13 +22,17 @@ public class CTCBlocks {
             () -> new BirdNest());
     public static final RegistryObject<Block> BLUE_BIRD_NEST = registerBlock("blue_bird_nest",
             () -> new BirdNest());
+    public static final RegistryObject<Block> DIRT_VOLE_BURROW = registerBlock("dirt_vole_burrow",
+            () -> new VoleBurrow(Blocks.DIRT, BlockBehaviour.Properties.copy(Blocks.DIRT).noOcclusion()));
+    public static final RegistryObject<Block> SNOW_VOLE_BURROW = registerBlock("snow_vole_burrow",
+            () -> new VoleBurrow(Blocks.SNOW, BlockBehaviour.Properties.of().strength(0.1F).noOcclusion()));
 
-    protected static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
+    public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);
         return toReturn;
     }
-    protected static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
+    public static <T extends Block> void registerBlockItem(String name, RegistryObject<T> block) {
         CTCItems.ITEMS.register(name, () -> new BlockItem(block.get(),
                 new Item.Properties()));
     }

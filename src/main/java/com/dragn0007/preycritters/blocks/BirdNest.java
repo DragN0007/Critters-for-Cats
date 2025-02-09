@@ -10,7 +10,7 @@ import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
 public class BirdNest extends Block {
-    protected static final VoxelShape AABB = Shapes.or(Block.box(4, 0, 4, 12, 3, 12));
+    public static final VoxelShape AABB = Shapes.or(Block.box(4, 0, 4, 12, 3, 12));
 
     public BirdNest() {
         super (Properties.copy(Blocks.HAY_BLOCK).strength(0.2f, 0.2f).noOcclusion());
@@ -20,7 +20,7 @@ public class BirdNest extends Block {
         return AABB;
     }
 
-    protected boolean mayPlaceOn(BlockState blockState, BlockGetter p_51043_, BlockPos p_51044_) {
+    public boolean mayPlaceOn(BlockState blockState, BlockGetter p_51043_, BlockPos p_51044_) {
         return !blockState.is(Blocks.WATER);
     }
 }

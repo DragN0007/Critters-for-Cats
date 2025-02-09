@@ -18,6 +18,8 @@ public class CTCPlacedFeatures {
 
     public static final ResourceKey<PlacedFeature> WHITE_BIRD_NEST_PLACED = registerKey("white_bird_nest_placed");
     public static final ResourceKey<PlacedFeature> BLUE_BIRD_NEST_PLACED = registerKey("blue_bird_nest_placed");
+    public static final ResourceKey<PlacedFeature> DIRT_VOLE_BURROW_PLACED = registerKey("dirt_vole_burrow_placed");
+    public static final ResourceKey<PlacedFeature> SNOW_VOLE_BURROW_PLACED = registerKey("snow_vole_burrow_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -35,12 +37,26 @@ public class CTCPlacedFeatures {
                         PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
                         BiomeFilter.biome(),
                         BlockPredicateFilter.forPredicate(BlockPredicate.noFluid())));
+
+        register(context, DIRT_VOLE_BURROW_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.DIRT_VOLE_BURROW),
+                List.of(RarityFilter.onAverageOnceEvery(32),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome(),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.noFluid())));
+
+        register(context, SNOW_VOLE_BURROW_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.SNOW_VOLE_BURROW),
+                List.of(RarityFilter.onAverageOnceEvery(48),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP_WORLD_SURFACE,
+                        BiomeFilter.biome(),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.noFluid())));
     }
 
-    private static ResourceKey<PlacedFeature> registerKey (String name){
+    public static ResourceKey<PlacedFeature> registerKey (String name){
         return ResourceKey.create(Registries.PLACED_FEATURE, new ResourceLocation(CrittersForCats.MODID, name));
     }
-    private static void register
+    public static void register
     (BootstapContext < PlacedFeature > context, ResourceKey < PlacedFeature > key, Holder < ConfiguredFeature < ?, ?>>
     configuration,
             List < PlacementModifier > modifiers){

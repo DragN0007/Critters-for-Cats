@@ -17,19 +17,23 @@ public class CTCConfigFeatures {
 
     public static final ResourceKey<ConfiguredFeature<?, ?>> WHITE_BIRD_NEST = registerKey("white_bird_nest");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BLUE_BIRD_NEST = registerKey("blue_bird_nest");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> DIRT_VOLE_BURROW = registerKey("dirt_vole_burrow");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> SNOW_VOLE_BURROW = registerKey("snow_vole_burrow");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
 
         register(context, WHITE_BIRD_NEST, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.WHITE_BIRD_NEST.get())));
         register(context, BLUE_BIRD_NEST, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.BLUE_BIRD_NEST.get())));
+        register(context, DIRT_VOLE_BURROW, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.DIRT_VOLE_BURROW.get())));
+        register(context, SNOW_VOLE_BURROW, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.SNOW_VOLE_BURROW.get())));
         
     }
     
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {
         return ResourceKey.create(Registries.CONFIGURED_FEATURE, new ResourceLocation(CrittersForCats.MODID, name));
     }
-    private static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context,
+    public static <FC extends FeatureConfiguration, F extends Feature<FC>> void register(BootstapContext<ConfiguredFeature<?, ?>> context,
                                                                                           ResourceKey<ConfiguredFeature<?, ?>> key, F feature, FC configuration) {
         context.register(key, new ConfiguredFeature<>(feature, configuration));
     }

@@ -2,6 +2,7 @@ package com.dragn0007.preycritters.entities;
 
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
+import com.dragn0007.preycritters.entities.vole.Vole;
 import net.minecraft.resources.ResourceLocation;
 import net.minecraft.world.entity.EntityType;
 import net.minecraft.world.entity.MobCategory;
@@ -26,6 +27,12 @@ public class EntityTypes {
                             MobCategory.CREATURE)
                     .sized(0.6f,0.6f)
                     .build(new ResourceLocation(MODID,"squirrel").toString()));
+
+    public static final RegistryObject<EntityType<Vole>> VOLE_ENTITY = ENTITY_TYPES.register("vole",
+            () -> EntityType.Builder.of(Vole::new,
+                            MobCategory.CREATURE)
+                    .sized(0.5f,0.5f)
+                    .build(new ResourceLocation(MODID,"vole").toString()));
 
 }
 

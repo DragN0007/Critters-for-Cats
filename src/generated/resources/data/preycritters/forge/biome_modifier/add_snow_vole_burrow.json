@@ -1,0 +1,6 @@
+{
+  "type": "forge:add_features",
+  "biomes": "#forge:is_snowy",
+  "features": "preycritters:snow_vole_burrow_placed",
+  "step": "vegetal_decoration"
+}
