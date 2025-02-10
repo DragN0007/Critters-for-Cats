@@ -77,7 +77,7 @@ public class Vole extends Animal implements GeoEntity {
 
 	@Override
 	public float getStepHeight() {
-		return 1.6F;
+		return 1.0F;
 	}
 
 	public final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
