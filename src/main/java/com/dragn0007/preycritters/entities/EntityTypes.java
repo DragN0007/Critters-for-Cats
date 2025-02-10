@@ -21,7 +21,7 @@ public class EntityTypes {
     public static final RegistryObject<EntityType<Mouse>> MOUSE_ENTITY = ENTITY_TYPES.register("mouse",
             () -> EntityType.Builder.of(Mouse::new,
                     MobCategory.CREATURE)
-                    .sized(0.5f,0.5f)
+                    .sized(0.25f,0.2f)
                     .build(new ResourceLocation(MODID,"mouse").toString()));
 
     public static final RegistryObject<EntityType<Squirrel>> SQUIRREL_ENTITY = ENTITY_TYPES.register("squirrel",
@@ -33,13 +33,13 @@ public class EntityTypes {
     public static final RegistryObject<EntityType<Vole>> VOLE_ENTITY = ENTITY_TYPES.register("vole",
             () -> EntityType.Builder.of(Vole::new,
                             MobCategory.CREATURE)
-                    .sized(0.5f,0.5f)
+                    .sized(0.4f,0.3f)
                     .build(new ResourceLocation(MODID,"vole").toString()));
 
     public static final RegistryObject<EntityType<Beetle>> BEETLE_ENTITY = ENTITY_TYPES.register("beetle",
             () -> EntityType.Builder.of(Beetle::new,
                             MobCategory.CREATURE)
-                    .sized(0.3f,0.3f)
+                    .sized(0.3f,0.1f)
                     .build(new ResourceLocation(MODID,"beetle").toString()));
 
     public static final RegistryObject<EntityType<Coyote>> COYOTE_ENTITY = ENTITY_TYPES.register("coyote",
