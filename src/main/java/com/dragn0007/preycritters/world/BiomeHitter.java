@@ -22,6 +22,7 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> ADD_BLUE_BIRD_NEST = registerKey("add_blue_bird_nest");
     public static final ResourceKey<BiomeModifier> ADD_DIRT_VOLE_BURROW = registerKey("add_dirt_vole_burrow");
     public static final ResourceKey<BiomeModifier> ADD_SNOW_VOLE_BURROW = registerKey("add_snow_vole_burrow");
+    public static final ResourceKey<BiomeModifier> ADD_BUG_LOG = registerKey("add_bug_log");
 
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_FORESTS = registerKey("spawn_mouse_forests");
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_HILLS = registerKey("spawn_mouse_hills");
@@ -30,6 +31,7 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_VOLE_TAIGAS = registerKey("spawn_vole_taigas");
     public static final ResourceKey<BiomeModifier> SPAWN_VOLE_SNOWY = registerKey("spawn_vole_snowy");
     public static final ResourceKey<BiomeModifier> SPAWN_VOLE_FORESTS = registerKey("spawn_vole_forests");
+    public static final ResourceKey<BiomeModifier> SPAWN_BEETLE = registerKey("spawn_beetle");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -54,6 +56,11 @@ public class BiomeHitter {
         context.register(ADD_SNOW_VOLE_BURROW, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(Tags.Biomes.IS_SNOWY),
                 HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.SNOW_VOLE_BURROW_PLACED)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_BUG_LOG, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.BUG_LOG_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
 
@@ -107,6 +114,15 @@ public class BiomeHitter {
         context.register(SPAWN_VOLE_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST),
                 List.of(new MobSpawnSettings.SpawnerData(EntityTypes.VOLE_ENTITY.get(),
+                        4,
+                        1,
+                        1
+                ))));
+
+
+        context.register(SPAWN_BEETLE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.BEETLE_ENTITY.get(),
                         4,
                         1,
                         1

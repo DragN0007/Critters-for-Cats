@@ -26,6 +26,8 @@ public class CTCBlocks {
             () -> new VoleBurrow(Blocks.DIRT, BlockBehaviour.Properties.copy(Blocks.DIRT).noOcclusion()));
     public static final RegistryObject<Block> SNOW_VOLE_BURROW = registerBlock("snow_vole_burrow",
             () -> new VoleBurrow(Blocks.SNOW, BlockBehaviour.Properties.of().strength(0.1F).noOcclusion()));
+    public static final RegistryObject<Block> BUG_LOG = registerBlock("bug_log",
+            () -> new BugLog());
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

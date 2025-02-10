@@ -5,6 +5,7 @@
   "item.preycritters.mouse_spawn_egg": "Mouse Spawn Egg",
   "item.preycritters.squirrel_spawn_egg": "Squirrel Spawn Egg",
   "item.preycritters.vole_spawn_egg": "Vole Spawn Egg",
+  "item.preycritters.beetle_spawn_egg": "Beetle Spawn Egg",
 
 
   "entity.preycritters.mouse": "Mouse",
@@ -15,6 +16,8 @@
   "item.preycritters.squirrel": "Raw Squirrel",
   "entity.preycritters.vole": "Vole",
   "item.preycritters.vole": "Raw Vole",
+  "entity.preycritters.beetle": "Beetle",
+  "item.preycritters.beetle": "Beetle",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",
@@ -26,5 +29,6 @@
   "block.preycritters.white_bird_nest": "Bird Nest",
   "block.preycritters.blue_bird_nest": "Bird Nest",
   "block.preycritters.dirt_vole_burrow": "Vole Burrow",
-  "block.preycritters.snow_vole_burrow": "Vole Burrow"
+  "block.preycritters.snow_vole_burrow": "Vole Burrow",
+  "block.preycritters.bug_log": "Bug Log"
 }
