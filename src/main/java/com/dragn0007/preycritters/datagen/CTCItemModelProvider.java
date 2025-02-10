@@ -23,12 +23,16 @@ public class CTCItemModelProvider extends ItemModelProvider {
         simpleItem(CTCItems.SQUIRREL);
         simpleItem(CTCItems.VOLE);
         simpleItem(CTCItems.BEETLE);
+        simpleItem(CTCItems.COYOTE);
+        simpleItem(CTCItems.COYOTE_HEART);
 
         simpleItem(CTCItems.WHITE_BIRD_EGG);
         simpleItem(CTCItems.BLUE_BIRD_EGG);
 
         simpleItem(CTCItems.SMALL_ANIMAL_BONE);
         simpleItem(CTCItems.SMALL_ANIMAL_SKULL);
+        simpleItem(CTCItems.COYOTE_TOOTH);
+        simpleItem(CTCItems.COYOTE_SKULL_ITEM);
     }
 
     public ItemModelBuilder simpleItem(RegistryObject<Item> item) {

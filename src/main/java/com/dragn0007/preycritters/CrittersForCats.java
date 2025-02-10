@@ -35,6 +35,4 @@ public class CrittersForCats
         System.out.println("[Critters for Cats] Registered Critters for Cats.");
     }
 
-
-
 }

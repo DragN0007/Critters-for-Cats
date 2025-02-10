@@ -1,6 +1,7 @@
 package com.dragn0007.preycritters.entities;
 
 import com.dragn0007.preycritters.entities.beetle.Beetle;
+import com.dragn0007.preycritters.entities.coyote.Coyote;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
 import com.dragn0007.preycritters.entities.vole.Vole;
@@ -40,6 +41,12 @@ public class EntityTypes {
                             MobCategory.CREATURE)
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(MODID,"beetle").toString()));
+
+    public static final RegistryObject<EntityType<Coyote>> COYOTE_ENTITY = ENTITY_TYPES.register("coyote",
+            () -> EntityType.Builder.of(Coyote::new,
+                            MobCategory.CREATURE)
+                    .sized(0.8f,0.8f)
+                    .build(new ResourceLocation(MODID,"coyote").toString()));
 
 }
 

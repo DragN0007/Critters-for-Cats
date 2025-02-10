@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:is_hot/overworld",
+  "spawners": {
+    "type": "preycritters:coyote",
+    "maxCount": 4,
+    "minCount": 1,
+    "weight": 7
+  }
+}

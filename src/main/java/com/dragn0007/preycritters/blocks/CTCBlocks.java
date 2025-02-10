@@ -29,6 +29,9 @@ public class CTCBlocks {
     public static final RegistryObject<Block> BUG_LOG = registerBlock("bug_log",
             () -> new BugLog());
 
+    public static final RegistryObject<Block> COYOTE_SKULL = registerBlock("coyote_skull",
+            () -> new CoyoteSkull());
+
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
         registerBlockItem(name, toReturn);

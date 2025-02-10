@@ -1,6 +1,10 @@
-// 1.20.1	2025-02-10T02:52:50.4967758	Item Models: preycritters
+// 1.20.1	2025-02-10T07:03:02.5750333	Item Models: preycritters
 cc95f1b07a5bd7169f26f58dd84e61f2c2f379df assets/preycritters/models/item/beetle.json
 b3b8318f9632715bb5a595bf8b04ac729b636c2f assets/preycritters/models/item/blue_bird_egg.json
+3ea76bb71674013dc083bf2eb7128e1b182d89e2 assets/preycritters/models/item/coyote.json
+a2f4336268b41bb231f6b3cd63c78450d97a5934 assets/preycritters/models/item/coyote_heart.json
+c57e094dfcef6e0cc17aa6081c0fbe35506636ca assets/preycritters/models/item/coyote_skull_item.json
+a727b2ea89ccefff7dbbf5e7ee383120a615a52d assets/preycritters/models/item/coyote_tooth.json
 15bf313a5db6d04c8c9c29505cde594b33ffb5bf assets/preycritters/models/item/mouse.json
 e9f7512cde1243840fbb1080ff203933e34b98e4 assets/preycritters/models/item/mouse_bile.json
 c470417e866406efdef6f3838d83754110226828 assets/preycritters/models/item/mouse_eye.json

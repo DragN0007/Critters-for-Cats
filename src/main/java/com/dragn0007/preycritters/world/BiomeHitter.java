@@ -32,6 +32,8 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_VOLE_SNOWY = registerKey("spawn_vole_snowy");
     public static final ResourceKey<BiomeModifier> SPAWN_VOLE_FORESTS = registerKey("spawn_vole_forests");
     public static final ResourceKey<BiomeModifier> SPAWN_BEETLE = registerKey("spawn_beetle");
+    public static final ResourceKey<BiomeModifier> SPAWN_COYOTE_FORESTS = registerKey("spawn_coyote_forests");
+    public static final ResourceKey<BiomeModifier> SPAWN_COYOTE_HOT = registerKey("spawn_coyote_hot");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -114,7 +116,7 @@ public class BiomeHitter {
         context.register(SPAWN_VOLE_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST),
                 List.of(new MobSpawnSettings.SpawnerData(EntityTypes.VOLE_ENTITY.get(),
-                        4,
+                        6,
                         1,
                         1
                 ))));
@@ -123,9 +125,25 @@ public class BiomeHitter {
         context.register(SPAWN_BEETLE, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_OVERWORLD),
                 List.of(new MobSpawnSettings.SpawnerData(EntityTypes.BEETLE_ENTITY.get(),
-                        4,
+                        6,
                         1,
                         1
+                ))));
+
+
+        context.register(SPAWN_COYOTE_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.COYOTE_ENTITY.get(),
+                        7,
+                        1,
+                        4
+                ))));
+        context.register(SPAWN_COYOTE_HOT, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_HOT_OVERWORLD),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.COYOTE_ENTITY.get(),
+                        7,
+                        1,
+                        4
                 ))));
     }
 

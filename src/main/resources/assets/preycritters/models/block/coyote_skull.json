@@ -1,0 +1,79 @@
+{
+	"credit": "DragN0007",
+	"textures": {
+		"0": "preycritters:block/coyote_skull",
+		"particle": "preycritters:block/coyote_skull"
+	},
+	"elements": [
+		{
+			"from": [5.9672, -0.0428, 8.11],
+			"to": [10.0328, 4.3132, 11.74],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 2.1352, 4.48]},
+			"faces": {
+				"north": {"uv": [0, 0, 4, 4], "texture": "#0"},
+				"east": {"uv": [0, 4, 4, 8], "texture": "#0"},
+				"south": {"uv": [4, 0, 8, 4], "texture": "#0"},
+				"west": {"uv": [4, 4, 8, 8], "texture": "#0"},
+				"up": {"uv": [4, 12, 0, 8], "texture": "#0"},
+				"down": {"uv": [12, 0, 8, 4], "texture": "#0"}
+			}
+		},
+		{
+			"from": [6.911, -0.0428, 5.206],
+			"to": [9.089, 2.2982, 8.11],
+			"rotation": {"angle": 0, "axis": "y", "origin": [8, 2.1352, 4.48]},
+			"faces": {
+				"north": {"uv": [9, 9, 11, 11], "texture": "#0"},
+				"east": {"uv": [4, 8, 7, 10], "texture": "#0"},
+				"south": {"uv": [4, 10, 6, 12], "texture": "#0"},
+				"west": {"uv": [8, 4, 11, 6], "texture": "#0"},
+				"up": {"uv": [10, 9, 8, 6], "texture": "#0"},
+				"down": {"uv": [9, 9, 7, 12], "texture": "#0"}
+			}
+		}
+	],
+	"display": {
+		"thirdperson_righthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"thirdperson_lefthand": {
+			"rotation": [75, 45, 0],
+			"translation": [0, 2.5, 0],
+			"scale": [0.375, 0.375, 0.375]
+		},
+		"firstperson_righthand": {
+			"rotation": [0, 45, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"firstperson_lefthand": {
+			"rotation": [0, 225, 0],
+			"scale": [0.4, 0.4, 0.4]
+		},
+		"ground": {
+			"translation": [0, 3, 0],
+			"scale": [0.25, 0.25, 0.25]
+		},
+		"gui": {
+			"rotation": [30, 225, 0],
+			"scale": [0.625, 0.625, 0.625]
+		},
+		"head": {
+			"translation": [0, 19.25, -7.75],
+			"scale": [4, 3.24, 4]
+		},
+		"fixed": {
+			"scale": [0.5, 0.5, 0.5]
+		}
+	},
+	"groups": [
+		{
+			"name": "group",
+			"origin": [8, 8, 8],
+			"color": 0,
+			"children": [0, 1]
+		}
+	],
+	"render_type": "cutout"
+}
