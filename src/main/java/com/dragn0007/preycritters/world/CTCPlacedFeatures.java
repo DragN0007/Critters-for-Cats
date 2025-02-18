@@ -53,7 +53,7 @@ public class CTCPlacedFeatures {
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
                         BiomeFilter.biome(),
-                        BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.noFluid(), BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT)))));
+                        BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.noFluid(), BlockPredicate.anyOf(BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT), BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.SNOW))))));
 
         register(context, BUG_LOG_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.BUG_LOG),
                 List.of(RarityFilter.onAverageOnceEvery(32),

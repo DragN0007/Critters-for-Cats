@@ -7,6 +7,7 @@
   "item.preycritters.vole_spawn_egg": "Vole Spawn Egg",
   "item.preycritters.beetle_spawn_egg": "Beetle Spawn Egg",
   "item.preycritters.coyote_spawn_egg": "Coyote Spawn Egg",
+  "item.preycritters.songbird_spawn_egg": "Songbird Spawn Egg",
 
 
   "entity.preycritters.mouse": "Mouse",
@@ -21,6 +22,8 @@
   "item.preycritters.beetle": "Beetle",
   "entity.preycritters.coyote": "Raw Coyote",
   "item.preycritters.coyote": "Coyote",
+  "entity.preycritters.songbird": "Songbird",
+  "item.preycritters.songbird": "Raw Bird",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",

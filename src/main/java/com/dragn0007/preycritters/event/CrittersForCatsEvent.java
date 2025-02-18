@@ -8,6 +8,8 @@ import com.dragn0007.preycritters.entities.coyote.Coyote;
 import com.dragn0007.preycritters.entities.coyote.CoyoteRender;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.mouse.MouseRender;
+import com.dragn0007.preycritters.entities.songbird.Songbird;
+import com.dragn0007.preycritters.entities.songbird.SongbirdRender;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
 import com.dragn0007.preycritters.entities.squirrel.SquirrelRender;
 import com.dragn0007.preycritters.entities.vole.Vole;
@@ -33,6 +35,7 @@ public class CrittersForCatsEvent {
         event.put(EntityTypes.VOLE_ENTITY.get(), Vole.createAttributes().build());
         event.put(EntityTypes.BEETLE_ENTITY.get(), Beetle.createAttributes().build());
         event.put(EntityTypes.COYOTE_ENTITY.get(), Coyote.createAttributes().build());
+        event.put(EntityTypes.SONGBIRD_ENTITY.get(), Songbird.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -42,6 +45,7 @@ public class CrittersForCatsEvent {
         EntityRenderers.register(EntityTypes.VOLE_ENTITY.get(), VoleRender::new);
         EntityRenderers.register(EntityTypes.BEETLE_ENTITY.get(), BeetleRender::new);
         EntityRenderers.register(EntityTypes.COYOTE_ENTITY.get(), CoyoteRender::new);
+        EntityRenderers.register(EntityTypes.SONGBIRD_ENTITY.get(), SongbirdRender::new);
     }
 
     @SubscribeEvent
@@ -51,6 +55,7 @@ public class CrittersForCatsEvent {
         event.register(EntityTypes.VOLE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.BEETLE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.COYOTE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.SONGBIRD_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
 

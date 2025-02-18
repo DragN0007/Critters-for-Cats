@@ -3,6 +3,7 @@ package com.dragn0007.preycritters.entities;
 import com.dragn0007.preycritters.entities.beetle.Beetle;
 import com.dragn0007.preycritters.entities.coyote.Coyote;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
+import com.dragn0007.preycritters.entities.songbird.Songbird;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
 import com.dragn0007.preycritters.entities.vole.Vole;
 import net.minecraft.resources.ResourceLocation;
@@ -47,6 +48,12 @@ public class EntityTypes {
                             MobCategory.CREATURE)
                     .sized(0.8f,0.8f)
                     .build(new ResourceLocation(MODID,"coyote").toString()));
+
+    public static final RegistryObject<EntityType<Songbird>> SONGBIRD_ENTITY = ENTITY_TYPES.register("songbird",
+            () -> EntityType.Builder.of(Songbird::new,
+                            MobCategory.CREATURE)
+                    .sized(0.3f,0.3f)
+                    .build(new ResourceLocation(MODID,"songbird").toString()));
 
 }
 

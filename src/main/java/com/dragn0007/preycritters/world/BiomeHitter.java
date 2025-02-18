@@ -34,6 +34,7 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_BEETLE = registerKey("spawn_beetle");
     public static final ResourceKey<BiomeModifier> SPAWN_COYOTE_FORESTS = registerKey("spawn_coyote_forests");
     public static final ResourceKey<BiomeModifier> SPAWN_COYOTE_HOT = registerKey("spawn_coyote_hot");
+    public static final ResourceKey<BiomeModifier> SPAWN_SONGBIRD_FORESTS = registerKey("spawn_songbird_forests");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -144,6 +145,15 @@ public class BiomeHitter {
                         7,
                         1,
                         4
+                ))));
+
+
+        context.register(SPAWN_SONGBIRD_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SONGBIRD_ENTITY.get(),
+                        10,
+                        1,
+                        2
                 ))));
     }
 

@@ -24,6 +24,7 @@ public class CTCItemGroup {
                         output.accept(CTCItems.VOLE_SPAWN_EGG.get());
                         output.accept(CTCItems.BEETLE_SPAWN_EGG.get());
                         output.accept(CTCItems.COYOTE_SPAWN_EGG.get());
+                        output.accept(CTCItems.SONGBIRD_SPAWN_EGG.get());
 
                         output.accept(CTCItems.MOUSE.get());
                         output.accept(CTCItems.SQUIRREL.get());
@@ -36,6 +37,7 @@ public class CTCItemGroup {
                         output.accept(CTCItems.BEETLE.get());
                         output.accept(CTCItems.COYOTE.get());
                         output.accept(CTCItems.COYOTE_HEART.get());
+                        output.accept(CTCItems.SONGBIRD.get());
 
                         output.accept(CTCItems.SMALL_ANIMAL_BONE.get());
                         output.accept(CTCItems.SMALL_ANIMAL_SKULL.get());

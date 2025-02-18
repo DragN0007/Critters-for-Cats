@@ -1,6 +1,7 @@
 {
   "replace": false,
   "values": [
-    "preycritters:mouse"
+    "preycritters:mouse",
+    "preycritters:vole"
   ]
 }
