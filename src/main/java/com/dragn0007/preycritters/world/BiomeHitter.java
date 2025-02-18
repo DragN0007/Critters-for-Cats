@@ -163,14 +163,14 @@ public class BiomeHitter {
         context.register(SPAWN_FISH_RIVERS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_RIVER),
                 List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SMALL_FISH_ENTITY.get(),
-                        10,
+                        8,
                         2,
                         5
                 ))));
         context.register(SPAWN_FISH_SWAMPS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
                 biomes.getOrThrow(Tags.Biomes.IS_SWAMP),
                 List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SMALL_FISH_ENTITY.get(),
-                        10,
+                        8,
                         2,
                         5
                 ))));

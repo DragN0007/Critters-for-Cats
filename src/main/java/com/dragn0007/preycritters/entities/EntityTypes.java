@@ -58,7 +58,7 @@ public class EntityTypes {
 
     public static final RegistryObject<EntityType<SmallFish>> SMALL_FISH_ENTITY = ENTITY_TYPES.register("small_fish",
             () -> EntityType.Builder.of(SmallFish::new,
-                            MobCategory.CREATURE)
+                            MobCategory.WATER_AMBIENT)
                     .sized(0.3f,0.3f)
                     .build(new ResourceLocation(MODID,"small_fish").toString()));
 

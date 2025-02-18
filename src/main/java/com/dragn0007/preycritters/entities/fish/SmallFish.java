@@ -74,10 +74,10 @@ public class SmallFish extends AbstractSchoolingFish implements GeoEntity {
 		if(tAnimationState.isMoving()) {
 			if (currentSpeed > speedThreshold) {
 				controller.setAnimation(RawAnimation.begin().then("swim", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(2.0);
+				controller.setAnimationSpeed(3.0);
 			} else if(currentSpeed < speedThreshold) {
 				controller.setAnimation(RawAnimation.begin().then("swim", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(1.0);
+				controller.setAnimationSpeed(2.0);
 			} else {
 				controller.setAnimation(RawAnimation.begin().then("swim", Animation.LoopType.LOOP));
 				controller.setAnimationSpeed(0.7);
