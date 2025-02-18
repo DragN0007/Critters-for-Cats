@@ -35,6 +35,9 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_COYOTE_FORESTS = registerKey("spawn_coyote_forests");
     public static final ResourceKey<BiomeModifier> SPAWN_COYOTE_HOT = registerKey("spawn_coyote_hot");
     public static final ResourceKey<BiomeModifier> SPAWN_SONGBIRD_FORESTS = registerKey("spawn_songbird_forests");
+    public static final ResourceKey<BiomeModifier> SPAWN_FISH_RIVERS = registerKey("spawn_fish_rivers");
+    public static final ResourceKey<BiomeModifier> SPAWN_FISH_SWAMPS = registerKey("spawn_fish_swamps");
+    public static final ResourceKey<BiomeModifier> SPAWN_FISH_PLAINS = registerKey("spawn_fish_plains");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -154,6 +157,29 @@ public class BiomeHitter {
                         10,
                         1,
                         2
+                ))));
+
+
+        context.register(SPAWN_FISH_RIVERS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_RIVER),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SMALL_FISH_ENTITY.get(),
+                        10,
+                        2,
+                        5
+                ))));
+        context.register(SPAWN_FISH_SWAMPS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_SWAMP),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SMALL_FISH_ENTITY.get(),
+                        10,
+                        2,
+                        5
+                ))));
+        context.register(SPAWN_FISH_PLAINS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_PLAINS),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SMALL_FISH_ENTITY.get(),
+                        6,
+                        2,
+                        5
                 ))));
     }
 

@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-10T07:03:02.5750333	Item Models: preycritters
+// 1.20.1	2025-02-18T02:15:05.170619	Item Models: preycritters
 cc95f1b07a5bd7169f26f58dd84e61f2c2f379df assets/preycritters/models/item/beetle.json
 b3b8318f9632715bb5a595bf8b04ac729b636c2f assets/preycritters/models/item/blue_bird_egg.json
 3ea76bb71674013dc083bf2eb7128e1b182d89e2 assets/preycritters/models/item/coyote.json
@@ -10,6 +10,11 @@ e9f7512cde1243840fbb1080ff203933e34b98e4 assets/preycritters/models/item/mouse_b
 c470417e866406efdef6f3838d83754110226828 assets/preycritters/models/item/mouse_eye.json
 75a3be1e9af76d4a48179d2df7454c19494b3b6b assets/preycritters/models/item/small_animal_bone.json
 17143960b30934f9005d5e5c4d1852af0b9a949d assets/preycritters/models/item/small_animal_skull.json
+1bca48723040de8704400f60078b33326ca6c9b1 assets/preycritters/models/item/small_fish.json
+420d0174c15e5187fb3c347750f89034df14d6bd assets/preycritters/models/item/small_fish_bucket.json
+670807f3e9c41d7a40bcdf3ac8f56566493eeb87 assets/preycritters/models/item/small_fish_scales.json
+8e970fa1286fb1459ba97bc318a7ca596bf64a22 assets/preycritters/models/item/small_fish_skeleton.json
+1a6174c08ed6fe7a64a9b33079216622322a14fa assets/preycritters/models/item/songbird.json
 e9bd7a4c983cbd1a52d015c695ae230a84b2a272 assets/preycritters/models/item/squirrel.json
 fc48550026ee24a4446d944cf6e2cb16635cbab3 assets/preycritters/models/item/vole.json
 64788a4e543bb8408a7394bc7315265acb4717a8 assets/preycritters/models/item/white_bird_egg.json

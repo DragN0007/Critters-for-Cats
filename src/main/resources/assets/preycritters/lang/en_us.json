@@ -8,6 +8,10 @@
   "item.preycritters.beetle_spawn_egg": "Beetle Spawn Egg",
   "item.preycritters.coyote_spawn_egg": "Coyote Spawn Egg",
   "item.preycritters.songbird_spawn_egg": "Songbird Spawn Egg",
+  "item.preycritters.small_fish_spawn_egg": "Small Fish Spawn Egg",
+
+
+  "item.preycritters.small_fish_bucket": "Small Fish Bucket",
 
 
   "entity.preycritters.mouse": "Mouse",
@@ -24,6 +28,8 @@
   "item.preycritters.coyote": "Coyote",
   "entity.preycritters.songbird": "Songbird",
   "item.preycritters.songbird": "Raw Bird",
+  "entity.preycritters.small_fish": "Small Fish",
+  "item.preycritters.small_fish": "Small Fish",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",
@@ -33,6 +39,8 @@
   "item.preycritters.small_animal_skull": "Small Animal Skull",
   "item.preycritters.coyote_tooth": "Coyote Tooth",
   "item.preycritters.coyote_skull_item": "Coyote Skull",
+  "item.preycritters.small_fish_skeleton": "Small Fish Skeleton",
+  "item.preycritters.small_fish_scales": "Small Fish Scales",
 
 
   "block.preycritters.white_bird_nest": "Bird Nest",

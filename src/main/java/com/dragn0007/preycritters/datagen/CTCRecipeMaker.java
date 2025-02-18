@@ -34,5 +34,12 @@ public class CTCRecipeMaker extends RecipeProvider implements IConditionBuilder 
                         .of(Items.BONE)
                         .build()))
                 .save(pFinishedRecipeConsumer, new ResourceLocation("preycritters", "bone_meal_small_skull"));
+
+        ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL)
+                .requires(CTCItems.SMALL_FISH_SKELETON.get())
+                .unlockedBy("has_bone", inventoryTrigger(ItemPredicate.Builder.item()
+                        .of(Items.BONE)
+                        .build()))
+                .save(pFinishedRecipeConsumer, new ResourceLocation("preycritters", "bone_meal_fish_skeleton"));
     }
 }
