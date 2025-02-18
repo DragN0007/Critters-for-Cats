@@ -1,4 +1,4 @@
-package com.dragn0007.preycritters.entities.squirrel;
+package com.dragn0007.preycritters.entities.frog;
 
 import com.dragn0007.preycritters.entities.coyote.Coyote;
 import net.minecraft.core.BlockPos;
@@ -16,8 +16,6 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
-import net.minecraft.world.entity.ai.navigation.PathNavigation;
-import net.minecraft.world.entity.ai.navigation.WallClimberNavigation;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
@@ -37,21 +35,21 @@ import software.bernie.geckolib.util.GeckoLibUtil;
 import javax.annotation.Nullable;
 import java.util.Random;
 
-public class Squirrel extends Animal implements GeoEntity {
+public class SmallFrog extends Animal implements GeoEntity {
 
-	public Squirrel(EntityType<? extends Squirrel> type, Level level) {
+	public SmallFrog(EntityType<? extends SmallFrog> type, Level level) {
 		super(type, level);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 5.0D)
-				.add(Attributes.MOVEMENT_SPEED, 0.21F);
+				.add(Attributes.MAX_HEALTH, 3.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.18F);
 	}
 
 	public void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
-		this.goalSelector.addGoal(1, new PanicGoal(this, 2.0F));
+		this.goalSelector.addGoal(1, new PanicGoal(this, 2.2F));
 		this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
@@ -63,18 +61,14 @@ public class Squirrel extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Villager.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Coyote.class, 15.0F, 1.8F, 1.8F));
 
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 2.0F, 2.0F, entity ->
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 2.2F, 2.2F, entity ->
 				(entity instanceof Player && !entity.isCrouching())
 		));
 	}
 
-	public PathNavigation createNavigation(Level navigation) {
-		return new WallClimberNavigation(this, navigation);
-	}
-
 	@Override
 	public float getStepHeight() {
-		return 2F;
+		return 1.6F;
 	}
 
 	public final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
@@ -87,15 +81,15 @@ public class Squirrel extends Animal implements GeoEntity {
 
 		if (tAnimationState.isMoving()) {
 			if (currentSpeed > speedThreshold) {
-				controller.setAnimation(RawAnimation.begin().then("run", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(3.5);
+				controller.setAnimation(RawAnimation.begin().then("hop", Animation.LoopType.LOOP));
+				controller.setAnimationSpeed(3.6);
 			} else {
-				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(1.5);
+				controller.setAnimation(RawAnimation.begin().then("hop", Animation.LoopType.LOOP));
+				controller.setAnimationSpeed(1.6);
 			}
 		} else {
 			controller.setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
-			controller.setAnimationSpeed(0.9);
+			controller.setAnimationSpeed(0.8);
 		}
 
 		return PlayState.CONTINUE;
@@ -113,21 +107,21 @@ public class Squirrel extends Animal implements GeoEntity {
 
 	public SoundEvent getAmbientSound() {
 		super.getAmbientSound();
-		return SoundEvents.RABBIT_AMBIENT;
+		return SoundEvents.FROG_AMBIENT;
 	}
 
 	public SoundEvent getDeathSound() {
 		super.getDeathSound();
-		return SoundEvents.RABBIT_DEATH;
+		return SoundEvents.FROG_DEATH;
 	}
 
 	public SoundEvent getHurtSound(DamageSource p_30720_) {
 		super.getHurtSound(p_30720_);
-		return SoundEvents.RABBIT_HURT;
+		return SoundEvents.FROG_HURT;
 	}
 
 	public void playStepSound(BlockPos p_28254_, BlockState p_28255_) {
-		this.playSound(SoundEvents.RABBIT_JUMP, 0.15F, 1.0F);
+		this.playSound(SoundEvents.FROG_STEP, 0.15F, 1.0F);
 	}
 
 	public boolean causeFallDamage(float p_148875_, float p_148876_, DamageSource p_148877_) {
@@ -136,10 +130,10 @@ public class Squirrel extends Animal implements GeoEntity {
 
 	// Generates the base texture
 	public ResourceLocation getTextureLocation() {
-		return SquirrelModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
+		return SmallFrogModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
 	}
 
-	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Squirrel.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(SmallFrog.class, EntityDataSerializers.INT);
 
 	public int getVariant() {
 		return this.entityData.get(VARIANT);
@@ -149,6 +143,16 @@ public class Squirrel extends Animal implements GeoEntity {
 		this.entityData.set(VARIANT, variant);
 	}
 
+	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(SmallFrog.class, EntityDataSerializers.INT);
+
+	public int getSize() {
+		return this.entityData.get(SIZE);
+	}
+
+	public void setSize(int size) {
+		this.entityData.set(SIZE, size);
+	}
+
 	@Override
 	public void readAdditionalSaveData(CompoundTag tag) {
 		super.readAdditionalSaveData(tag);
@@ -156,12 +160,17 @@ public class Squirrel extends Animal implements GeoEntity {
 		if (tag.contains("Variant")) {
 			setVariant(tag.getInt("Variant"));
 		}
+
+		if (tag.contains("Size")) {
+			setSize(tag.getInt("Size"));
+		}
 	}
 
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		tag.putInt("Variant", getVariant());
+		tag.putInt("Size", getSize());
 	}
 
 	@Override
@@ -171,7 +180,8 @@ public class Squirrel extends Animal implements GeoEntity {
 			data = new AgeableMobGroupData(0.2F);
 		}
 		Random random = new Random();
-		setVariant(random.nextInt(SquirrelModel.Variant.values().length));
+		setVariant(random.nextInt(SmallFrogModel.Variant.values().length));
+		setSize(random.nextInt(SmallFrog.Size.values().length));
 
 		return super.finalizeSpawn(serverLevelAccessor, instance, spawnType, data, tag);
 	}
@@ -186,6 +196,13 @@ public class Squirrel extends Animal implements GeoEntity {
 	public void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(VARIANT, 0);
+		this.entityData.define(SIZE, 0);
+	}
+
+	public enum Size {
+		HALF,
+		FULL,
+		LARGE;
 	}
 
 }

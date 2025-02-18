@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-18T02:34:18.1347404	Registries
+// 1.20.1	2025-02-18T03:47:05.007763	Registries
 add601dd4da552cc27ea55c59ae47c101f120525 data/preycritters/forge/biome_modifier/add_blue_bird_nest.json
 3120edfe5f31e2f6243c17ec6f623f53ce6f76d0 data/preycritters/forge/biome_modifier/add_bug_log.json
 44bbb081f1dab9caf3837d84e7c430967cebeb9e data/preycritters/forge/biome_modifier/add_dirt_vole_burrow.json
@@ -10,6 +10,7 @@ bd177ca9258b3ce3673895d53275a10bcf8c3303 data/preycritters/forge/biome_modifier/
 cdf0f07a155b9f16d3ada4baa6c6fb6c09aa8786 data/preycritters/forge/biome_modifier/spawn_fish_plains.json
 6a2478d13ce529e74b249ba445620d787c6f2dd0 data/preycritters/forge/biome_modifier/spawn_fish_rivers.json
 dff73881e833879e31db1cd5ed670524496c23bb data/preycritters/forge/biome_modifier/spawn_fish_swamps.json
+e7da1f45819df6caa1fae0c084cfd29a2271aad6 data/preycritters/forge/biome_modifier/spawn_frogs_swamps.json
 cd91c70ee0280eaed609ce56ce78d046528b4774 data/preycritters/forge/biome_modifier/spawn_mouse_forests.json
 34beb80b11ab74eafefe7ec8ef48bc4ab5d45cb1 data/preycritters/forge/biome_modifier/spawn_mouse_hills.json
 de5fe735734119aec5bc562b529f2cc56c25fe78 data/preycritters/forge/biome_modifier/spawn_mouse_plains.json

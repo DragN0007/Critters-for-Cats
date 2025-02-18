@@ -8,6 +8,8 @@ import com.dragn0007.preycritters.entities.coyote.Coyote;
 import com.dragn0007.preycritters.entities.coyote.CoyoteRender;
 import com.dragn0007.preycritters.entities.fish.SmallFish;
 import com.dragn0007.preycritters.entities.fish.SmallFishRender;
+import com.dragn0007.preycritters.entities.frog.SmallFrog;
+import com.dragn0007.preycritters.entities.frog.SmallFrogRender;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.mouse.MouseRender;
 import com.dragn0007.preycritters.entities.songbird.Songbird;
@@ -40,6 +42,7 @@ public class CrittersForCatsEvent {
         event.put(EntityTypes.COYOTE_ENTITY.get(), Coyote.createAttributes().build());
         event.put(EntityTypes.SONGBIRD_ENTITY.get(), Songbird.createAttributes().build());
         event.put(EntityTypes.SMALL_FISH_ENTITY.get(), SmallFish.createAttributes().build());
+        event.put(EntityTypes.SMALL_FROG_ENTITY.get(), SmallFrog.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -51,6 +54,7 @@ public class CrittersForCatsEvent {
         EntityRenderers.register(EntityTypes.COYOTE_ENTITY.get(), CoyoteRender::new);
         EntityRenderers.register(EntityTypes.SONGBIRD_ENTITY.get(), SongbirdRender::new);
         EntityRenderers.register(EntityTypes.SMALL_FISH_ENTITY.get(), SmallFishRender::new);
+        EntityRenderers.register(EntityTypes.SMALL_FROG_ENTITY.get(), SmallFrogRender::new);
     }
 
     @SubscribeEvent
@@ -62,6 +66,7 @@ public class CrittersForCatsEvent {
         event.register(EntityTypes.COYOTE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.SONGBIRD_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.SMALL_FISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AbstractSchoolingFish::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.SMALL_FROG_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
 

@@ -1,6 +1,7 @@
 package com.dragn0007.preycritters.entities.vole;
 
 import com.dragn0007.preycritters.blocks.VoleBurrow;
+import com.dragn0007.preycritters.entities.coyote.Coyote;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
@@ -68,6 +69,7 @@ public class Vole extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Cat.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Ocelot.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Villager.class, 15.0F, 1.8F, 1.8F));
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Coyote.class, 15.0F, 1.8F, 1.8F));
 
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Player.class, 15.0F, 2.0F, 2.0F, entity ->
 				(entity instanceof Player && !entity.isCrouching())

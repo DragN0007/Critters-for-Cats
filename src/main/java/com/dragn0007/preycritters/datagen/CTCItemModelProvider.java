@@ -27,6 +27,7 @@ public class CTCItemModelProvider extends ItemModelProvider {
         simpleItem(CTCItems.COYOTE_HEART);
         simpleItem(CTCItems.SMALL_FISH);
         simpleItem(CTCItems.SONGBIRD);
+        simpleItem(CTCItems.SMALL_FROG);
 
         simpleItem(CTCItems.WHITE_BIRD_EGG);
         simpleItem(CTCItems.BLUE_BIRD_EGG);

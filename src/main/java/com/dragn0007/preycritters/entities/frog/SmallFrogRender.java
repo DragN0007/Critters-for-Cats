@@ -1,18 +1,18 @@
-package com.dragn0007.preycritters.entities.fish;
+package com.dragn0007.preycritters.entities.frog;
 
 import com.mojang.blaze3d.vertex.PoseStack;
 import net.minecraft.client.renderer.MultiBufferSource;
 import net.minecraft.client.renderer.entity.EntityRendererProvider;
 import software.bernie.geckolib.renderer.GeoEntityRenderer;
 
-public class SmallFishRender extends GeoEntityRenderer<SmallFish> {
+public class SmallFrogRender extends GeoEntityRenderer<SmallFrog> {
 
-    public SmallFishRender(EntityRendererProvider.Context renderManager) {
-        super(renderManager, new SmallFishModel());
+    public SmallFrogRender(EntityRendererProvider.Context renderManager) {
+        super(renderManager, new SmallFrogModel());
     }
 
     @Override
-    public void render(SmallFish entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
+    public void render(SmallFrog entity, float entityYaw, float partialTick, PoseStack poseStack, MultiBufferSource bufferSource, int packedLight) {
 
         if(entity.isBaby()) {
             poseStack.scale(0.5F, 0.5F, 0.5F);
@@ -23,18 +23,14 @@ public class SmallFishRender extends GeoEntityRenderer<SmallFish> {
         if(!entity.isBaby()) {
 
             if (entity.getSize() == 0) {
-                poseStack.scale(0.25F, 0.25F, 0.25F);
-            }
-
-            if (entity.getSize() == 1) {
                 poseStack.scale(0.5F, 0.5F, 0.5F);
             }
 
-            if (entity.getSize() == 2) {
+            if (entity.getSize() == 1) {
                 poseStack.scale(1.0F, 1.0F, 1.0F);
             }
 
-            if (entity.getSize() == 3) {
+            if (entity.getSize() == 2) {
                 poseStack.scale(1.25F, 1.25F, 1.25F);
             }
         }

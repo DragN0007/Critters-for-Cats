@@ -38,6 +38,7 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_FISH_RIVERS = registerKey("spawn_fish_rivers");
     public static final ResourceKey<BiomeModifier> SPAWN_FISH_SWAMPS = registerKey("spawn_fish_swamps");
     public static final ResourceKey<BiomeModifier> SPAWN_FISH_PLAINS = registerKey("spawn_fish_plains");
+    public static final ResourceKey<BiomeModifier> SPAWN_FROGS_SWAMPS = registerKey("spawn_frogs_swamps");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -180,6 +181,15 @@ public class BiomeHitter {
                         6,
                         2,
                         5
+                ))));
+
+
+        context.register(SPAWN_FROGS_SWAMPS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_SWAMP),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SMALL_FROG_ENTITY.get(),
+                        20,
+                        1,
+                        2
                 ))));
     }
 

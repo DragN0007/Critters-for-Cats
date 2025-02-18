@@ -1,6 +1,10 @@
 package com.dragn0007.preycritters.entities.coyote;
 
 import com.dragn0007.preycritters.entities.ai.CoyoteFollowLeaderGoal;
+import com.dragn0007.preycritters.entities.frog.SmallFrog;
+import com.dragn0007.preycritters.entities.mouse.Mouse;
+import com.dragn0007.preycritters.entities.squirrel.Squirrel;
+import com.dragn0007.preycritters.entities.vole.Vole;
 import com.dragn0007.preycritters.util.CrittersForCatsCommonConfig;
 import net.minecraft.core.BlockPos;
 import net.minecraft.nbt.CompoundTag;
@@ -69,6 +73,10 @@ public class Coyote extends Animal implements GeoEntity {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Fox.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Chicken.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Rabbit.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Mouse.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, SmallFrog.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Squirrel.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Vole.class, false));
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.8D, true));
 	}
 

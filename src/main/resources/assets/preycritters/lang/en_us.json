@@ -9,6 +9,7 @@
   "item.preycritters.coyote_spawn_egg": "Coyote Spawn Egg",
   "item.preycritters.songbird_spawn_egg": "Songbird Spawn Egg",
   "item.preycritters.small_fish_spawn_egg": "Small Fish Spawn Egg",
+  "item.preycritters.small_frog_spawn_egg": "Small Frog Spawn Egg",
 
 
   "item.preycritters.small_fish_bucket": "Small Fish Bucket",
@@ -30,6 +31,8 @@
   "item.preycritters.songbird": "Raw Bird",
   "entity.preycritters.small_fish": "Small Fish",
   "item.preycritters.small_fish": "Small Fish",
+  "entity.preycritters.small_frog": "Small Frog",
+  "item.preycritters.small_frog": "Small Frog",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",

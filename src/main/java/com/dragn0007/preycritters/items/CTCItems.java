@@ -37,6 +37,8 @@ public class CTCItems {
             () -> new ForgeSpawnEggItem(EntityTypes.SONGBIRD_ENTITY, 0x965326, 0xebc291, new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> SMALL_FISH_SPAWN_EGG = ITEMS.register("small_fish_spawn_egg",
             () -> new ForgeSpawnEggItem(EntityTypes.SMALL_FISH_ENTITY, 0xbdc2c1, 0x606c69, new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SMALL_FROG_SPAWN_EGG = ITEMS.register("small_frog_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypes.SMALL_FROG_ENTITY, 0x2c482d, 0xd8d8c8, new Item.Properties().stacksTo(64)));
 
     //Food
     public static final RegistryObject<Item> MOUSE = ITEMS.register("mouse",
@@ -59,6 +61,8 @@ public class CTCItems {
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).build())));
     public static final RegistryObject<Item> SMALL_FISH = ITEMS.register("small_fish",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).build())));
+    public static final RegistryObject<Item> SMALL_FROG = ITEMS.register("small_frog",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).build())));
 
     public static final RegistryObject<Item> WHITE_BIRD_EGG = ITEMS.register("white_bird_egg",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
