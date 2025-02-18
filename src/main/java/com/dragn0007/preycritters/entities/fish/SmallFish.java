@@ -1,5 +1,6 @@
 package com.dragn0007.preycritters.entities.fish;
 
+import com.dragn0007.preycritters.CrittersForCats;
 import com.dragn0007.preycritters.items.CTCItems;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
@@ -17,6 +18,7 @@ import net.minecraft.world.entity.animal.AbstractSchoolingFish;
 import net.minecraft.world.item.ItemStack;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
+import org.apache.commons.compress.archivers.zip.ScatterZipOutputStream;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
 import software.bernie.geckolib.core.animatable.instance.AnimatableInstanceCache;
@@ -112,12 +114,23 @@ public class SmallFish extends AbstractSchoolingFish implements GeoEntity {
 		this.entityData.set(VARIANT, variant);
 	}
 
+	public static final EntityDataAccessor<Integer> SIZE = SynchedEntityData.defineId(SmallFish.class, EntityDataSerializers.INT);
+
+	public int getSize() {
+		return this.entityData.get(SIZE);
+	}
+
+	public void setSize(int size) {
+		this.entityData.set(SIZE, size);
+	}
+
 	@Override
 	@Nullable
 	public SpawnGroupData finalizeSpawn(ServerLevelAccessor serverLevelAccessor, DifficultyInstance instance, MobSpawnType spawnType, @Nullable SpawnGroupData groupData, @Nullable CompoundTag tag) {
 
 		Random random = new Random();
 		setVariant(random.nextInt(SmallFishModel.Variant.values().length));
+		setSize(random.nextInt(SmallFish.Size.values().length));
 
 		return super.finalizeSpawn(serverLevelAccessor, instance, spawnType, groupData, tag);
 	}
@@ -129,17 +142,31 @@ public class SmallFish extends AbstractSchoolingFish implements GeoEntity {
 		if (tag.contains("Variant")) {
 			setVariant(tag.getInt("Variant"));
 		}
+
+		if (tag.contains("Size")) {
+			setSize(tag.getInt("Size"));
+		}
 	}
 
 	@Override
 	public void addAdditionalSaveData(CompoundTag tag) {
 		super.addAdditionalSaveData(tag);
 		tag.putInt("Variant", getVariant());
+		tag.putInt("Size", getSize());
 	}
 
 	@Override
 	public void defineSynchedData() {
 		super.defineSynchedData();
 		this.entityData.define(VARIANT, 0);
+		this.entityData.define(SIZE, 0);
 	}
+
+	public enum Size {
+		QUARTER,
+		HALF,
+		FULL,
+		LARGE;
+	}
+
 }

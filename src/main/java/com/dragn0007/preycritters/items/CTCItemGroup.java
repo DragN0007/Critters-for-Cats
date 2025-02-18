@@ -48,6 +48,8 @@ public class CTCItemGroup {
                         output.accept(CTCItems.SMALL_FISH_SKELETON.get());
                         output.accept(CTCItems.SMALL_FISH_SCALES.get());
 
+                        output.accept(CTCItems.SMALL_FISH_BUCKET.get());
+
                         output.accept(CTCBlocks.WHITE_BIRD_NEST.get());
                         output.accept(CTCBlocks.BLUE_BIRD_NEST.get());
                         output.accept(CTCBlocks.DIRT_VOLE_BURROW.get());

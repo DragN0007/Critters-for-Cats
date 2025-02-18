@@ -22,6 +22,25 @@ public class SmallFishRender extends GeoEntityRenderer<SmallFish> {
             poseStack.scale(1F, 1F, 1F);
         }
 
+        if(!entity.isBaby()) {
+
+            if (entity.getSize() == 0) {
+                poseStack.scale(0.25F, 0.25F, 0.25F);
+            }
+
+            if (entity.getSize() == 1) {
+                poseStack.scale(0.5F, 0.5F, 0.5F);
+            }
+
+            if (entity.getSize() == 2) {
+                poseStack.scale(1.0F, 1.0F, 1.0F);
+            }
+
+            if (entity.getSize() == 3) {
+                poseStack.scale(1.25F, 1.25F, 1.25F);
+            }
+        }
+
         super.render(entity, entityYaw, partialTick, poseStack, bufferSource, packedLight);
     }
 
