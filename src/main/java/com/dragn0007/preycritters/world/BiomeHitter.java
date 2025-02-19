@@ -40,6 +40,8 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_FISH_SWAMPS = registerKey("spawn_fish_swamps");
     public static final ResourceKey<BiomeModifier> SPAWN_FISH_PLAINS = registerKey("spawn_fish_plains");
     public static final ResourceKey<BiomeModifier> SPAWN_FROGS_SWAMPS = registerKey("spawn_frogs_swamps");
+    public static final ResourceKey<BiomeModifier> SPAWN_WOLVES_TAIGAS = registerKey("spawn_wolves_taigas");
+    public static final ResourceKey<BiomeModifier> SPAWN_WOLVES_SNOWY = registerKey("spawn_wolves_snowy");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -196,6 +198,22 @@ public class BiomeHitter {
                         20,
                         1,
                         2
+                ))));
+
+
+        context.register(SPAWN_WOLVES_TAIGAS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_TAIGA),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.V_WOLF_ENTITY.get(),
+                        8,
+                        1,
+                        4
+                ))));
+        context.register(SPAWN_WOLVES_SNOWY, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_SNOWY),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.V_WOLF_ENTITY.get(),
+                        8,
+                        1,
+                        4
                 ))));
     }
 

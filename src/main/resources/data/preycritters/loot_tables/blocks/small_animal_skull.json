@@ -5,7 +5,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "preycritters:coyote_skull_item"
+          "name": "preycritters:small_animal_skull_item"
         }
       ]
     }

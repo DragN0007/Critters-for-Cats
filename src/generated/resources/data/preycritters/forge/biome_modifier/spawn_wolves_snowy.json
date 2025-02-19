@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:is_snowy",
+  "spawners": {
+    "type": "preycritters:v_wolf",
+    "maxCount": 4,
+    "minCount": 1,
+    "weight": 8
+  }
+}

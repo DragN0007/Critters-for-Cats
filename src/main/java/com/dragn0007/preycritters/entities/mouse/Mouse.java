@@ -1,9 +1,7 @@
 package com.dragn0007.preycritters.entities.mouse;
 
-import com.dragn0007.preycritters.blocks.MouseBurrow;
-import com.dragn0007.preycritters.blocks.VoleBurrow;
+import com.dragn0007.preycritters.blocks.custom.MouseBurrow;
 import com.dragn0007.preycritters.entities.coyote.Coyote;
-import com.dragn0007.preycritters.entities.vole.Vole;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;

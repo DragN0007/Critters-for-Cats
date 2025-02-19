@@ -1,13 +1,12 @@
 package com.dragn0007.preycritters.blocks;
 
 import com.dragn0007.preycritters.CrittersForCats;
-import com.dragn0007.preycritters.entities.mouse.Mouse;
+import com.dragn0007.preycritters.blocks.custom.*;
 import com.dragn0007.preycritters.items.CTCItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
 import net.minecraft.world.level.block.Block;
 import net.minecraft.world.level.block.Blocks;
-import net.minecraft.world.level.block.state.BlockBehaviour;
 import net.minecraftforge.eventbus.api.IEventBus;
 import net.minecraftforge.registries.DeferredRegister;
 import net.minecraftforge.registries.ForgeRegistries;
@@ -35,6 +34,8 @@ public class CTCBlocks {
             () -> new MouseBurrow(Blocks.DIRT));
     public static final RegistryObject<Block> SMALL_ANIMAL_SKULL = registerBlock("small_animal_skull",
             () -> new SmallAnimalSkull());
+    public static final RegistryObject<Block> WOLF_SKULL = registerBlock("wolf_skull",
+            () -> new CoyoteSkull());
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);

@@ -41,6 +41,8 @@ public class CTCItems {
             () -> new ForgeSpawnEggItem(EntityTypes.SMALL_FISH_ENTITY, 0xbdc2c1, 0x606c69, new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> SMALL_FROG_SPAWN_EGG = ITEMS.register("small_frog_spawn_egg",
             () -> new ForgeSpawnEggItem(EntityTypes.SMALL_FROG_ENTITY, 0x2c482d, 0xd8d8c8, new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> V_WOLF_SPAWN_EGG = ITEMS.register("v_wolf_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypes.V_WOLF_ENTITY, 0x7e766e, 0x5c544e, new Item.Properties().stacksTo(64)));
 
     //Food
     public static final RegistryObject<Item> MOUSE = ITEMS.register("mouse",
@@ -65,6 +67,8 @@ public class CTCItems {
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).build())));
     public static final RegistryObject<Item> SMALL_FROG = ITEMS.register("small_frog",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).build())));
+    public static final RegistryObject<Item> WOLF = ITEMS.register("wolf",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(12).build())));
 
     public static final RegistryObject<Item> WHITE_BIRD_EGG = ITEMS.register("white_bird_egg",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
@@ -87,6 +91,10 @@ public class CTCItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SONGBIRD_FEATHER = ITEMS.register("songbird_feather",
             () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WOLF_HIDE = ITEMS.register("wolf_hide",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> WOLF_SKULL_ITEM = ITEMS.register("wolf_skull_item",
+            () -> new BlockItem(CTCBlocks.WOLF_SKULL.get(), (new Item.Properties()).stacksTo(1)));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

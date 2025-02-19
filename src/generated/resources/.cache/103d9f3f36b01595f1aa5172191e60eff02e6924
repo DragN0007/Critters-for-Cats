@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-18T23:47:43.957389	Registries
+// 1.20.1	2025-02-19T03:12:53.5371341	Registries
 add601dd4da552cc27ea55c59ae47c101f120525 data/preycritters/forge/biome_modifier/add_blue_bird_nest.json
 3120edfe5f31e2f6243c17ec6f623f53ce6f76d0 data/preycritters/forge/biome_modifier/add_bug_log.json
 44bbb081f1dab9caf3837d84e7c430967cebeb9e data/preycritters/forge/biome_modifier/add_dirt_vole_burrow.json
@@ -20,6 +20,8 @@ db4f760bcdab8220a81ad21e2302c9bbd1b7087e data/preycritters/forge/biome_modifier/
 06e2daf3732a16b3116a6ac513ce38646c462dac data/preycritters/forge/biome_modifier/spawn_vole_forests.json
 b464acd3241dec1b3a7dfb904bcba244ab36e52c data/preycritters/forge/biome_modifier/spawn_vole_snowy.json
 d98e13f8d5c8581fcff038c133f5fa385909ef8a data/preycritters/forge/biome_modifier/spawn_vole_taigas.json
+1c996e60263f800926d176b106af1268693e7e6f data/preycritters/forge/biome_modifier/spawn_wolves_snowy.json
+c12c981fede65947c1b7a2ba681becc2d525cd1a data/preycritters/forge/biome_modifier/spawn_wolves_taigas.json
 fb9bd3d1d36cd1d7c16106dbbeeb3603104fa717 data/preycritters/worldgen/configured_feature/blue_bird_nest.json
 753e3bbfe943ba1c110b99d7c13f9b1fac6cf096 data/preycritters/worldgen/configured_feature/bug_log.json
 6dd37d9ee47bfbe86fea836c598b04f66aec0154 data/preycritters/worldgen/configured_feature/dirt_vole_burrow.json

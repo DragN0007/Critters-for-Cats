@@ -1,4 +1,4 @@
-package com.dragn0007.preycritters.blocks;
+package com.dragn0007.preycritters.blocks.custom;
 
 
 import net.minecraft.world.level.block.Block;
@@ -8,26 +8,26 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.Stream;
 
-public class SmallAnimalSkull extends SkullRotator {
+public class CoyoteSkull extends SkullRotator {
 
-    public SmallAnimalSkull() {
+    public CoyoteSkull() {
         super(NORTH, EAST, SOUTH, WEST);
     }
 
     public static final VoxelShape NORTH = Stream.of(
-            Block.box(6.4, 0, 6.300000000000001, 9.6, 3, 9.8)
+            Block.box(4, 0, 4, 12, 5, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape EAST = Stream.of(
-            Block.box(6.199999999999999, 0, 6.4, 9.7, 3, 9.6)
+            Block.box(4, 0, 4, 12, 5, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape SOUTH = Stream.of(
-            Block.box(6.4, 0, 6.300000000000001, 9.6, 3, 9.8)
+            Block.box(4, 0, 4, 12, 5, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
     public static final VoxelShape WEST = Stream.of(
-            Block.box(6.199999999999999, 0, 6.4, 9.7, 3, 9.6)
+            Block.box(4, 0, 4, 12, 5, 12)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
 

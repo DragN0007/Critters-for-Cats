@@ -10,6 +10,7 @@
   "item.preycritters.songbird_spawn_egg": "Songbird Spawn Egg",
   "item.preycritters.small_fish_spawn_egg": "Small Fish Spawn Egg",
   "item.preycritters.small_frog_spawn_egg": "Small Frog Spawn Egg",
+  "item.preycritters.v_wolf_spawn_egg": "V-Wolf Spawn Egg",
 
 
   "item.preycritters.small_fish_bucket": "Small Fish Bucket",
@@ -33,6 +34,8 @@
   "item.preycritters.small_fish": "Raw Small Fish",
   "entity.preycritters.small_frog": "Small Frog",
   "item.preycritters.small_frog": "Raw Frog",
+  "entity.preycritters.v_wolf": "V-Wolf",
+  "item.preycritters.wolf": "Raw Wolf",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",
@@ -45,6 +48,8 @@
   "item.preycritters.small_fish_skeleton": "Small Fish Skeleton",
   "item.preycritters.small_fish_scales": "Small Fish Scales",
   "item.preycritters.songbird_feather": "Songbird Feather",
+  "item.preycritters.wolf_hide": "Wolf Hide",
+  "item.preycritters.wolf_skull_item": "Wolf Skull",
 
 
   "block.preycritters.white_bird_nest": "Bird Nest",
@@ -54,5 +59,6 @@
   "block.preycritters.bug_log": "Bug Log",
   "block.preycritters.coyote_skull": "Coyote Skull",
   "block.preycritters.small_animal_skull": "Small Animal Skull",
-  "block.preycritters.mouse_burrow": "Mouse Burrow"
+  "block.preycritters.mouse_burrow": "Mouse Burrow",
+  "block.preycritters.wolf_skull": "Wolf Skull"
 }

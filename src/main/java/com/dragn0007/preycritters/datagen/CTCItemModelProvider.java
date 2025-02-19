@@ -28,6 +28,7 @@ public class CTCItemModelProvider extends ItemModelProvider {
         simpleItem(CTCItems.SMALL_FISH);
         simpleItem(CTCItems.SONGBIRD);
         simpleItem(CTCItems.SMALL_FROG);
+        simpleItem(CTCItems.WOLF);
 
         simpleItem(CTCItems.WHITE_BIRD_EGG);
         simpleItem(CTCItems.BLUE_BIRD_EGG);
@@ -39,6 +40,8 @@ public class CTCItemModelProvider extends ItemModelProvider {
         simpleItem(CTCItems.SMALL_FISH_SKELETON);
         simpleItem(CTCItems.SMALL_FISH_SCALES);
         simpleItem(CTCItems.SONGBIRD_FEATHER);
+        simpleItem(CTCItems.WOLF_HIDE);
+        simpleItem(CTCItems.WOLF_SKULL_ITEM);
 
         simpleItem(CTCItems.SMALL_FISH_BUCKET);
     }

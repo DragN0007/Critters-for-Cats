@@ -1,4 +1,4 @@
-package com.dragn0007.preycritters.blocks;
+package com.dragn0007.preycritters.blocks.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class BurrowRotator extends HorizontalDirectionalBlock {
+public class SkullRotator extends HorizontalDirectionalBlock {
     public VoxelShape NORTH;
     public VoxelShape EAST;
     public VoxelShape SOUTH;
@@ -20,8 +20,8 @@ public class BurrowRotator extends HorizontalDirectionalBlock {
 
 
     //Rotation & Properties
-    public BurrowRotator(VoxelShape north, VoxelShape east, VoxelShape south, VoxelShape west) {
-        super (Properties.of().sound(SoundType.ROOTED_DIRT).strength(0.2f, 0.2f).noOcclusion());
+    public SkullRotator(VoxelShape north, VoxelShape east, VoxelShape south, VoxelShape west) {
+        super (Properties.of().sound(SoundType.BONE_BLOCK).strength(0.5f, 0.5f).noOcclusion());
 
         NORTH = north;
         EAST = east;

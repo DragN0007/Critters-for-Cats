@@ -1,13 +1,16 @@
-package com.dragn0007.preycritters.entities.coyote;
+package com.dragn0007.preycritters.entities.wolf;
 
 import com.dragn0007.preycritters.entities.ai.CoyoteFollowLeaderGoal;
+import com.dragn0007.preycritters.entities.ai.WolfFollowLeaderGoal;
+import com.dragn0007.preycritters.entities.coyote.Coyote;
+import com.dragn0007.preycritters.entities.coyote.CoyoteModel;
 import com.dragn0007.preycritters.entities.frog.SmallFrog;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
 import com.dragn0007.preycritters.entities.vole.Vole;
-import com.dragn0007.preycritters.entities.wolf.VWolf;
 import com.dragn0007.preycritters.util.CrittersForCatsCommonConfig;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.particles.ParticleTypes;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -26,6 +29,7 @@ import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.*;
+import net.minecraft.world.entity.animal.horse.Llama;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
 import net.minecraft.world.level.ServerLevelAccessor;
@@ -45,17 +49,17 @@ import java.util.List;
 import java.util.Random;
 import java.util.stream.Stream;
 
-public class Coyote extends Animal implements GeoEntity {
+public class VWolf extends Animal implements GeoEntity {
 
-	public Coyote(EntityType<? extends Coyote> type, Level level) {
+	public VWolf(EntityType<? extends VWolf> type, Level level) {
 		super(type, level);
 	}
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 12.0D)
-				.add(Attributes.ATTACK_DAMAGE, 2.5D)
-				.add(Attributes.MOVEMENT_SPEED, 0.20F);
+				.add(Attributes.MAX_HEALTH, 18.0D)
+				.add(Attributes.ATTACK_DAMAGE, 4D)
+				.add(Attributes.MOVEMENT_SPEED, 0.18F);
 	}
 
 	public void registerGoals() {
@@ -65,11 +69,10 @@ public class Coyote extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
 
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Wolf.class, 15.0F, 1.8F, 1.8F));
-		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, VWolf.class, 15.0F, 1.8F, 1.8F));
+		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Llama.class, 15.0F, 1.8F, 1.8F));
 
-		this.goalSelector.addGoal(1, new CoyotePanicGoal(1.8D, this));
-		this.goalSelector.addGoal(3, new CoyoteFollowLeaderGoal(this));
+		this.goalSelector.addGoal(1, new WolfPanicGoal(1.8D, this));
+		this.goalSelector.addGoal(3, new WolfFollowLeaderGoal(this));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Player.class, false));
 		this.targetSelector.addGoal(2, new NearestAttackableTargetGoal<>(this, Cat.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Fox.class, false));
@@ -79,19 +82,24 @@ public class Coyote extends Animal implements GeoEntity {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, SmallFrog.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Squirrel.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Vole.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Coyote.class, false));
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.8D, true));
 	}
+
+	public int regenHealthCounter = 0;
+
+	public int particleCounter = 0;
 
 	public void tick() {
 		super.tick();
 		if (this.hasFollowers() && this.level().random.nextInt(200) == 1) {
-			List<? extends Coyote> list = this.level().getEntitiesOfClass(this.getClass(), this.getBoundingBox().inflate(20.0D, 20.0D, 20.0D));
+			List<? extends VWolf> list = this.level().getEntitiesOfClass(this.getClass(), this.getBoundingBox().inflate(20.0D, 20.0D, 20.0D));
 			if (list.size() <= 1) {
 				this.packSize = 1;
 			}
 		}
 
-		//if i'm in a group with other coyotes, give me a strength buff
+		//if im in a group with other wolves, give me a strength buff
 		if (this.hasFollowers() || this.isFollower()) {
 			if (!this.hasStrengthEffect()) {
 				this.applyStrengthEffect();
@@ -102,32 +110,85 @@ public class Coyote extends Animal implements GeoEntity {
 			}
 		}
 
+		//if im in a group with other wolves, regen a heart every 400 ticks as long as im hurt
+		regenHealthCounter++;
+
+		if (this.getHealth() < this.getMaxHealth() && regenHealthCounter >= 400 && this.isAlive() && (this.isFollower() || this.hasFollowers())) {
+			this.setHealth(this.getHealth() + 2);
+			regenHealthCounter = 0;
+			this.level().addParticle(ParticleTypes.HEART, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
+		}
+
+		//if im a leader, give me absorption
+		if (this.hasFollowers()) {
+			if (!this.hasAbsorptionEffect()) {
+				this.applyAbsorptionEffect();
+			}
+			if (!this.hasResistanceEffect()) {
+				this.applyResistanceEffect();
+			}
+		} else {
+			if (this.hasAbsorptionEffect()) {
+				this.removeAbsorptionEffect();
+			}
+			if (this.hasResistanceEffect()) {
+				this.removeResistanceEffect();
+			}
+		}
+
+		particleCounter++;
+
+		if (this.hasFollowers()) {
+			this.level().addAlwaysVisibleParticle(ParticleTypes.SOUL, this.getRandomX(0.6D), this.getRandomY(), this.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
+			particleCounter = 0;
+		}
+
 	}
 
 	private void applyStrengthEffect() {
-		MobEffectInstance speedEffectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
-		this.addEffect(speedEffectInstance);
+		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
+		this.addEffect(effectInstance);
 	}
-
 	private boolean hasStrengthEffect() {
 		return this.hasEffect(MobEffects.DAMAGE_BOOST);
 	}
-
 	private void removeStrengthEffect() {
 		this.removeEffect(MobEffects.DAMAGE_BOOST);
 	}
 
-	public Coyote leader;
+	private void applyAbsorptionEffect() {
+		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.ABSORPTION, 200, 1, false, false);
+		this.addEffect(effectInstance);
+	}
+	private boolean hasAbsorptionEffect() {
+		return this.hasEffect(MobEffects.ABSORPTION);
+	}
+	private void removeAbsorptionEffect() {
+		this.removeEffect(MobEffects.ABSORPTION);
+	}
+
+	private void applyResistanceEffect() {
+		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, false);
+		this.addEffect(effectInstance);
+	}
+	private boolean hasResistanceEffect() {
+		return this.hasEffect(MobEffects.DAMAGE_RESISTANCE);
+	}
+	private void removeResistanceEffect() {
+		this.removeEffect(MobEffects.DAMAGE_RESISTANCE);
+	}
+
+	public VWolf leader;
 	public int packSize = 1;
 
 	public boolean isFollower() {
 		return this.leader != null && this.leader.isAlive();
 	}
 
-	public Coyote startFollowing(Coyote coyote) {
-		this.leader = coyote;
-		coyote.addFollower();
-		return coyote;
+	public VWolf startFollowing(VWolf wolf) {
+		this.leader = wolf;
+		wolf.addFollower();
+		return wolf;
 	}
 
 	public void stopFollowing() {
@@ -148,7 +209,7 @@ public class Coyote extends Animal implements GeoEntity {
 	}
 
 	public int getMaxHerdSize() {
-		return CrittersForCatsCommonConfig.MAX_COYOTE_GROUP.get();
+		return CrittersForCatsCommonConfig.MAX_WOLF_GROUP.get();
 	}
 
 	public boolean hasFollowers() {
@@ -166,11 +227,11 @@ public class Coyote extends Animal implements GeoEntity {
 
 	}
 
-	public void addFollowers(Stream<? extends Coyote> p_27534_) {
-		p_27534_.limit((long)(this.getMaxHerdSize() - this.packSize)).filter((coyote) -> {
-			return coyote != this;
-		}).forEach((coyote) -> {
-			coyote.startFollowing(this);
+	public void addFollowers(Stream<? extends VWolf> p_27534_) {
+		p_27534_.limit((long)(this.getMaxHerdSize() - this.packSize)).filter((wolf) -> {
+			return wolf != this;
+		}).forEach((wolf) -> {
+			wolf.startFollowing(this);
 		});
 	}
 
@@ -190,14 +251,14 @@ public class Coyote extends Animal implements GeoEntity {
 		if (tAnimationState.isMoving()) {
 			if (currentSpeed > speedThreshold) {
 				controller.setAnimation(RawAnimation.begin().then("run", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(2.5);
+				controller.setAnimationSpeed(2.4);
 			} else {
 				controller.setAnimation(RawAnimation.begin().then("walk", Animation.LoopType.LOOP));
-				controller.setAnimationSpeed(1.3);
+				controller.setAnimationSpeed(1.2);
 			}
 		} else {
 			controller.setAnimation(RawAnimation.begin().then("idle", Animation.LoopType.LOOP));
-			controller.setAnimationSpeed(1.0);
+			controller.setAnimationSpeed(0.9);
 		}
 
 		return PlayState.CONTINUE;
@@ -215,7 +276,7 @@ public class Coyote extends Animal implements GeoEntity {
 
 	public SoundEvent getAmbientSound() {
 		super.getAmbientSound();
-		return SoundEvents.WOLF_GROWL;
+		return SoundEvents.WOLF_AMBIENT;
 	}
 
 	public SoundEvent getDeathSound() {
@@ -225,7 +286,7 @@ public class Coyote extends Animal implements GeoEntity {
 
 	public SoundEvent getHurtSound(DamageSource p_30720_) {
 		super.getHurtSound(p_30720_);
-		return SoundEvents.WOLF_HURT;
+		return SoundEvents.WOLF_GROWL;
 	}
 
 	public void playStepSound(BlockPos p_28254_, BlockState p_28255_) {
@@ -234,10 +295,10 @@ public class Coyote extends Animal implements GeoEntity {
 
 	// Generates the base texture
 	public ResourceLocation getTextureLocation() {
-		return CoyoteModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
+		return VWolfModel.Variant.variantFromOrdinal(getVariant()).resourceLocation;
 	}
 
-	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(Coyote.class, EntityDataSerializers.INT);
+	public static final EntityDataAccessor<Integer> VARIANT = SynchedEntityData.defineId(VWolf.class, EntityDataSerializers.INT);
 
 	public int getVariant() {
 		return this.entityData.get(VARIANT);
@@ -274,7 +335,7 @@ public class Coyote extends Animal implements GeoEntity {
 			data = new AgeableMobGroupData(0.2F);
 		}
 		Random random = new Random();
-		setVariant(random.nextInt(CoyoteModel.Variant.values().length));
+		setVariant(random.nextInt(VWolfModel.Variant.values().length));
 
 		return super.finalizeSpawn(serverLevelAccessor, instance, spawnType, data, tag);
 	}
@@ -306,13 +367,13 @@ public class Coyote extends Animal implements GeoEntity {
 	}
 
 	//panic and run away if im at or under 33% health, unless im in a group
-	class CoyotePanicGoal extends PanicGoal {
-		public CoyotePanicGoal(double v, Coyote mob) {
-			super(Coyote.this, v);
+	class WolfPanicGoal extends PanicGoal {
+		public WolfPanicGoal(double v, VWolf mob) {
+			super(VWolf.this, v);
 			this.mob = mob;
 		}
 
-		protected final Coyote mob;
+		protected final VWolf mob;
 
 		protected boolean shouldPanic() {
 			return this.mob.isFreezing() || this.mob.isOnFire() || (this.mob.getHealth() < this.mob.getMaxHealth() / 3 && this.mob.isAlive() && !this.mob.hasFollowers() && !this.mob.isFollower());

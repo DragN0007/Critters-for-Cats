@@ -1,4 +1,4 @@
-package com.dragn0007.preycritters.blocks;
+package com.dragn0007.preycritters.blocks.custom;
 
 import net.minecraft.core.BlockPos;
 import net.minecraft.world.level.BlockGetter;

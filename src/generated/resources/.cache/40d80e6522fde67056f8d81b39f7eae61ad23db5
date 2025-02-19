@@ -1,4 +1,4 @@
-// 1.20.1	2025-02-18T23:47:43.9563908	Item Models: preycritters
+// 1.20.1	2025-02-19T02:37:45.6988059	Item Models: preycritters
 cc95f1b07a5bd7169f26f58dd84e61f2c2f379df assets/preycritters/models/item/beetle.json
 b3b8318f9632715bb5a595bf8b04ac729b636c2f assets/preycritters/models/item/blue_bird_egg.json
 3ea76bb71674013dc083bf2eb7128e1b182d89e2 assets/preycritters/models/item/coyote.json
@@ -20,3 +20,6 @@ bb9d58d08b79cc67aa2181a71a272bc046da62b8 assets/preycritters/models/item/small_a
 e9bd7a4c983cbd1a52d015c695ae230a84b2a272 assets/preycritters/models/item/squirrel.json
 fc48550026ee24a4446d944cf6e2cb16635cbab3 assets/preycritters/models/item/vole.json
 64788a4e543bb8408a7394bc7315265acb4717a8 assets/preycritters/models/item/white_bird_egg.json
+2ff141d37fe688388069c4a574440e01e026ac7e assets/preycritters/models/item/wolf.json
+f00a11fe2a56114a68fe4b5c51f33b33654f5a24 assets/preycritters/models/item/wolf_hide.json
+a23d9be6e52aba8df9be6493cafab2964ee8cb6d assets/preycritters/models/item/wolf_skull_item.json

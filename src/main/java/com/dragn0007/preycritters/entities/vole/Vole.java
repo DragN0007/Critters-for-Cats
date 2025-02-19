@@ -1,6 +1,6 @@
 package com.dragn0007.preycritters.entities.vole;
 
-import com.dragn0007.preycritters.blocks.VoleBurrow;
+import com.dragn0007.preycritters.blocks.custom.VoleBurrow;
 import com.dragn0007.preycritters.entities.coyote.Coyote;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;

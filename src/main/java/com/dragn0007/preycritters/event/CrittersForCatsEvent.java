@@ -18,6 +18,8 @@ import com.dragn0007.preycritters.entities.squirrel.Squirrel;
 import com.dragn0007.preycritters.entities.squirrel.SquirrelRender;
 import com.dragn0007.preycritters.entities.vole.Vole;
 import com.dragn0007.preycritters.entities.vole.VoleRender;
+import com.dragn0007.preycritters.entities.wolf.VWolf;
+import com.dragn0007.preycritters.entities.wolf.VWolfRender;
 import net.minecraft.client.renderer.entity.EntityRenderers;
 import net.minecraft.world.entity.SpawnPlacements;
 import net.minecraft.world.entity.animal.AbstractSchoolingFish;
@@ -43,6 +45,7 @@ public class CrittersForCatsEvent {
         event.put(EntityTypes.SONGBIRD_ENTITY.get(), Songbird.createAttributes().build());
         event.put(EntityTypes.SMALL_FISH_ENTITY.get(), SmallFish.createAttributes().build());
         event.put(EntityTypes.SMALL_FROG_ENTITY.get(), SmallFrog.createAttributes().build());
+        event.put(EntityTypes.V_WOLF_ENTITY.get(), VWolf.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -55,6 +58,7 @@ public class CrittersForCatsEvent {
         EntityRenderers.register(EntityTypes.SONGBIRD_ENTITY.get(), SongbirdRender::new);
         EntityRenderers.register(EntityTypes.SMALL_FISH_ENTITY.get(), SmallFishRender::new);
         EntityRenderers.register(EntityTypes.SMALL_FROG_ENTITY.get(), SmallFrogRender::new);
+        EntityRenderers.register(EntityTypes.V_WOLF_ENTITY.get(), VWolfRender::new);
     }
 
     @SubscribeEvent
@@ -67,6 +71,7 @@ public class CrittersForCatsEvent {
         event.register(EntityTypes.SONGBIRD_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.SMALL_FISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AbstractSchoolingFish::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.SMALL_FROG_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.V_WOLF_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
 

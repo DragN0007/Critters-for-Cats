@@ -1,7 +1,6 @@
-package com.dragn0007.preycritters.blocks;
+package com.dragn0007.preycritters.blocks.custom;
 
 import net.minecraft.world.level.block.Block;
-import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.phys.shapes.BooleanOp;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
