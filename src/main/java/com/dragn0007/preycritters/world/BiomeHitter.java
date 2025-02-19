@@ -23,6 +23,7 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> ADD_DIRT_VOLE_BURROW = registerKey("add_dirt_vole_burrow");
     public static final ResourceKey<BiomeModifier> ADD_SNOW_VOLE_BURROW = registerKey("add_snow_vole_burrow");
     public static final ResourceKey<BiomeModifier> ADD_BUG_LOG = registerKey("add_bug_log");
+    public static final ResourceKey<BiomeModifier> ADD_MOUSE_BURROW = registerKey("add_mouse_burrow");
 
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_FORESTS = registerKey("spawn_mouse_forests");
     public static final ResourceKey<BiomeModifier> SPAWN_MOUSE_HILLS = registerKey("spawn_mouse_hills");
@@ -68,6 +69,11 @@ public class BiomeHitter {
         context.register(ADD_BUG_LOG, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
                 biomes.getOrThrow(BiomeTags.IS_FOREST),
                 HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.BUG_LOG_PLACED)),
+                GenerationStep.Decoration.VEGETAL_DECORATION));
+
+        context.register(ADD_MOUSE_BURROW, new ForgeBiomeModifiers.AddFeaturesBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                HolderSet.direct(placedFeatures.getOrThrow(CTCPlacedFeatures.MOUSE_BURROW_PLACED)),
                 GenerationStep.Decoration.VEGETAL_DECORATION));
 
 

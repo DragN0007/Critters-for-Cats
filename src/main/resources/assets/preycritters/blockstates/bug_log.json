@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": {"model": "preycritters:block/bug_log" }
+    "facing=east": {
+      "model": "preycritters:block/bug_log",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "preycritters:block/bug_log"
+    },
+    "facing=south": {
+      "model": "preycritters:block/bug_log",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "preycritters:block/bug_log",
+      "y": 270
+    }
   }
 }

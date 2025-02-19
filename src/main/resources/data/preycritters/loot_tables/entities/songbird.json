@@ -70,6 +70,24 @@
       ],
       "functions": [],
       "conditions": []
+    },
+    {
+      "rolls": 1,
+      "entries": [
+        {
+          "type": "minecraft:item",
+          "name": "preycritters:songbird_feather",
+          "functions": [],
+          "conditions": [
+            {
+              "condition": "minecraft:random_chance",
+              "chance": 0.25
+            }
+          ]
+        }
+      ],
+      "functions": [],
+      "conditions": []
     }
   ]
 }

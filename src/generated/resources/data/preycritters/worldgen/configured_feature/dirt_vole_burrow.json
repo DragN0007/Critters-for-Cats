@@ -4,7 +4,10 @@
     "to_place": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "preycritters:dirt_vole_burrow"
+        "Name": "preycritters:dirt_vole_burrow",
+        "Properties": {
+          "facing": "north"
+        }
       }
     }
   }

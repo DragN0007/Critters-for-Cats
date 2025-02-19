@@ -25,25 +25,26 @@
   "item.preycritters.vole": "Raw Vole",
   "entity.preycritters.beetle": "Beetle",
   "item.preycritters.beetle": "Beetle",
-  "entity.preycritters.coyote": "Raw Coyote",
-  "item.preycritters.coyote": "Coyote",
+  "entity.preycritters.coyote": "Coyote",
+  "item.preycritters.coyote": "Raw Coyote",
   "entity.preycritters.songbird": "Songbird",
   "item.preycritters.songbird": "Raw Bird",
   "entity.preycritters.small_fish": "Small Fish",
-  "item.preycritters.small_fish": "Small Fish",
+  "item.preycritters.small_fish": "Raw Small Fish",
   "entity.preycritters.small_frog": "Small Frog",
-  "item.preycritters.small_frog": "Small Frog",
+  "item.preycritters.small_frog": "Raw Frog",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",
   "item.preycritters.coyote_heart": "Coyote Heart",
 
   "item.preycritters.small_animal_bone": "Small Animal Bone",
-  "item.preycritters.small_animal_skull": "Small Animal Skull",
+  "item.preycritters.small_animal_skull_item": "Small Animal Skull",
   "item.preycritters.coyote_tooth": "Coyote Tooth",
   "item.preycritters.coyote_skull_item": "Coyote Skull",
   "item.preycritters.small_fish_skeleton": "Small Fish Skeleton",
   "item.preycritters.small_fish_scales": "Small Fish Scales",
+  "item.preycritters.songbird_feather": "Songbird Feather",
 
 
   "block.preycritters.white_bird_nest": "Bird Nest",
@@ -51,5 +52,7 @@
   "block.preycritters.dirt_vole_burrow": "Vole Burrow",
   "block.preycritters.snow_vole_burrow": "Vole Burrow",
   "block.preycritters.bug_log": "Bug Log",
-  "block.preycritters.coyote_skull": "Coyote Skull"
+  "block.preycritters.coyote_skull": "Coyote Skull",
+  "block.preycritters.small_animal_skull": "Small Animal Skull",
+  "block.preycritters.mouse_burrow": "Mouse Burrow"
 }

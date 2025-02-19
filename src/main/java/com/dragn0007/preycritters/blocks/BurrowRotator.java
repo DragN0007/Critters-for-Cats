@@ -12,7 +12,7 @@ import net.minecraft.world.level.block.state.StateDefinition;
 import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
-public class DecorRotator extends HorizontalDirectionalBlock {
+public class BurrowRotator extends HorizontalDirectionalBlock {
     public VoxelShape NORTH;
     public VoxelShape EAST;
     public VoxelShape SOUTH;
@@ -20,8 +20,8 @@ public class DecorRotator extends HorizontalDirectionalBlock {
 
 
     //Rotation & Properties
-    public DecorRotator(VoxelShape north, VoxelShape east, VoxelShape south, VoxelShape west) {
-        super (Properties.of().sound(SoundType.BONE_BLOCK).strength(0.5f, 0.5f).noOcclusion());
+    public BurrowRotator(VoxelShape north, VoxelShape east, VoxelShape south, VoxelShape west) {
+        super (Properties.of().sound(SoundType.ROOTED_DIRT).strength(0.2f, 0.2f).noOcclusion());
 
         NORTH = north;
         EAST = east;

@@ -4,7 +4,7 @@
     "to_place": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "preycritters:snow_vole_burrow",
+        "Name": "preycritters:mouse_burrow",
         "Properties": {
           "facing": "north"
         }

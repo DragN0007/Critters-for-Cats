@@ -19,6 +19,7 @@ import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.effect.MobEffect;
 import net.minecraft.world.effect.MobEffectInstance;
+import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -52,7 +53,7 @@ public class Coyote extends Animal implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 8.0D)
+				.add(Attributes.MAX_HEALTH, 12.0D)
 				.add(Attributes.ATTACK_DAMAGE, 2.5D)
 				.add(Attributes.MOVEMENT_SPEED, 0.20F);
 	}
@@ -103,17 +104,16 @@ public class Coyote extends Animal implements GeoEntity {
 	}
 
 	private void applyStrengthEffect() {
-		MobEffect effect = MobEffect.byId(5);
-		MobEffectInstance speedEffectInstance = new MobEffectInstance(effect, 200, 0, false, false);
+		MobEffectInstance speedEffectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
 		this.addEffect(speedEffectInstance);
 	}
 
 	private boolean hasStrengthEffect() {
-		return this.hasEffect(MobEffect.byId(5));
+		return this.hasEffect(MobEffects.DAMAGE_BOOST);
 	}
 
 	private void removeStrengthEffect() {
-		this.removeEffect(MobEffect.byId(5));
+		this.removeEffect(MobEffects.DAMAGE_BOOST);
 	}
 
 	public Coyote leader;

@@ -12,6 +12,8 @@ import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
+import net.minecraft.world.effect.MobEffect;
+import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
@@ -103,6 +105,35 @@ public class SmallFrog extends Animal implements GeoEntity {
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {
 		return this.geoCache;
+	}
+
+	public void tick() {
+		super.tick();
+
+		if (this.isInWater()) {
+			if (!this.hasSpeedEffect()) {
+				this.applySpeedEffect();
+			}
+		} else {
+			if (this.hasSpeedEffect()) {
+				this.removeSpeedEffect();
+			}
+		}
+
+	}
+
+	private void applySpeedEffect() {
+		MobEffect effect = MobEffect.byId(1);
+		MobEffectInstance speedEffectInstance = new MobEffectInstance(effect, 200, 1, false, false);
+		this.addEffect(speedEffectInstance);
+	}
+
+	private boolean hasSpeedEffect() {
+		return this.hasEffect(MobEffect.byId(1));
+	}
+
+	private void removeSpeedEffect() {
+		this.removeEffect(MobEffect.byId(1));
 	}
 
 	public SoundEvent getAmbientSound() {

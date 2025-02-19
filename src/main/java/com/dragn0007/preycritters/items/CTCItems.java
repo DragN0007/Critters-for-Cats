@@ -3,12 +3,14 @@ package com.dragn0007.preycritters.items;
 import com.dragn0007.preycritters.CrittersForCats;
 import com.dragn0007.preycritters.blocks.CTCBlocks;
 import com.dragn0007.preycritters.entities.EntityTypes;
+import com.dragn0007.preycritters.items.custom.MouseBileItem;
 import net.minecraft.sounds.SoundEvents;
 import net.minecraft.world.effect.MobEffectInstance;
 import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
+import net.minecraft.world.item.MilkBucketItem;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -44,7 +46,7 @@ public class CTCItems {
     public static final RegistryObject<Item> MOUSE = ITEMS.register("mouse",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).meat().build())));
     public static final RegistryObject<Item> MOUSE_BILE = ITEMS.register("mouse_bile",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
+            () -> new MouseBileItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> MOUSE_EYE = ITEMS.register("mouse_eye",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1F).build())));
     public static final RegistryObject<Item> SQUIRREL = ITEMS.register("squirrel",
@@ -71,18 +73,19 @@ public class CTCItems {
 
     public static final RegistryObject<Item> SMALL_ANIMAL_BONE = ITEMS.register("small_animal_bone",
             () -> new Item(new Item.Properties()));
-    public static final RegistryObject<Item> SMALL_ANIMAL_SKULL = ITEMS.register("small_animal_skull",
-            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SMALL_ANIMAL_SKULL_ITEM = ITEMS.register("small_animal_skull_item",
+            () -> new BlockItem(CTCBlocks.SMALL_ANIMAL_SKULL.get(), (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<Item> COYOTE_TOOTH = ITEMS.register("coyote_tooth",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> COYOTE_SKULL_ITEM = ITEMS.register("coyote_skull_item",
             () -> new BlockItem(CTCBlocks.COYOTE_SKULL.get(), (new Item.Properties()).stacksTo(1)));
     public static final RegistryObject<Item> SMALL_FISH_BUCKET = ITEMS.register("small_fish_bucket",
             () -> new MobBucketItem(EntityTypes.SMALL_FISH_ENTITY, () -> Fluids.WATER, () -> SoundEvents.BUCKET_FILL_FISH, new Item.Properties().stacksTo(1)));
-
     public static final RegistryObject<Item> SMALL_FISH_SKELETON = ITEMS.register("small_fish_skeleton",
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> SMALL_FISH_SCALES = ITEMS.register("small_fish_scales",
+            () -> new Item(new Item.Properties()));
+    public static final RegistryObject<Item> SONGBIRD_FEATHER = ITEMS.register("songbird_feather",
             () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {

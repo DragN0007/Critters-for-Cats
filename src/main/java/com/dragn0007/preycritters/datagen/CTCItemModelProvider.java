@@ -33,11 +33,12 @@ public class CTCItemModelProvider extends ItemModelProvider {
         simpleItem(CTCItems.BLUE_BIRD_EGG);
 
         simpleItem(CTCItems.SMALL_ANIMAL_BONE);
-        simpleItem(CTCItems.SMALL_ANIMAL_SKULL);
+        simpleItem(CTCItems.SMALL_ANIMAL_SKULL_ITEM);
         simpleItem(CTCItems.COYOTE_TOOTH);
         simpleItem(CTCItems.COYOTE_SKULL_ITEM);
         simpleItem(CTCItems.SMALL_FISH_SKELETON);
         simpleItem(CTCItems.SMALL_FISH_SCALES);
+        simpleItem(CTCItems.SONGBIRD_FEATHER);
 
         simpleItem(CTCItems.SMALL_FISH_BUCKET);
     }

@@ -44,7 +44,7 @@ public class CTCItemGroup {
                         output.accept(CTCItems.COYOTE_HEART.get());
 
                         output.accept(CTCItems.SMALL_ANIMAL_BONE.get());
-                        output.accept(CTCItems.SMALL_ANIMAL_SKULL.get());
+                        output.accept(CTCItems.SMALL_ANIMAL_SKULL_ITEM.get());
                         output.accept(CTCItems.COYOTE_TOOTH.get());
                         output.accept(CTCItems.COYOTE_SKULL_ITEM.get());
                         output.accept(CTCItems.SMALL_FISH_SKELETON.get());
@@ -57,6 +57,7 @@ public class CTCItemGroup {
                         output.accept(CTCBlocks.DIRT_VOLE_BURROW.get());
                         output.accept(CTCBlocks.SNOW_VOLE_BURROW.get());
                         output.accept(CTCBlocks.BUG_LOG.get());
+                        output.accept(CTCBlocks.MOUSE_BURROW.get());
                     }).build());
 
     public static void register(IEventBus eventBus) {

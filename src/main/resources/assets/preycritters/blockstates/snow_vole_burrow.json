@@ -1,5 +1,19 @@
 {
   "variants": {
-    "": {"model": "preycritters:block/snow_vole_burrow" }
+    "facing=east": {
+      "model": "preycritters:block/snow_vole_burrow",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "preycritters:block/snow_vole_burrow"
+    },
+    "facing=south": {
+      "model": "preycritters:block/snow_vole_burrow",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "preycritters:block/snow_vole_burrow",
+      "y": 270
+    }
   }
 }

@@ -23,6 +23,7 @@ public class CTCPlacedFeatures {
     public static final ResourceKey<PlacedFeature> DIRT_VOLE_BURROW_PLACED = registerKey("dirt_vole_burrow_placed");
     public static final ResourceKey<PlacedFeature> SNOW_VOLE_BURROW_PLACED = registerKey("snow_vole_burrow_placed");
     public static final ResourceKey<PlacedFeature> BUG_LOG_PLACED = registerKey("bug_log_placed");
+    public static final ResourceKey<PlacedFeature> MOUSE_BURROW_PLACED = registerKey("mouse_burrow_placed");
 
     public static void bootstrap(BootstapContext<PlacedFeature> context) {
         HolderGetter<ConfiguredFeature<?, ?>> configuredFeatures = context.lookup(Registries.CONFIGURED_FEATURE);
@@ -57,6 +58,13 @@ public class CTCPlacedFeatures {
 
         register(context, BUG_LOG_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.BUG_LOG),
                 List.of(RarityFilter.onAverageOnceEvery(32),
+                        InSquarePlacement.spread(),
+                        PlacementUtils.HEIGHTMAP,
+                        BiomeFilter.biome(),
+                        BlockPredicateFilter.forPredicate(BlockPredicate.allOf(BlockPredicate.noFluid(), BlockPredicate.matchesTag(Direction.DOWN.getNormal(), BlockTags.DIRT)))));
+
+        register(context, MOUSE_BURROW_PLACED, configuredFeatures.getOrThrow(CTCConfigFeatures.MOUSE_BURROW),
+                List.of(RarityFilter.onAverageOnceEvery(28),
                         InSquarePlacement.spread(),
                         PlacementUtils.HEIGHTMAP,
                         BiomeFilter.biome(),

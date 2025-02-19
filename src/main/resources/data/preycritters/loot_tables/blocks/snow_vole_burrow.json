@@ -68,7 +68,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "preycritters:small_animal_skull",
+          "name": "preycritters:small_animal_skull_item",
           "functions": [
             {
               "function": "minecraft:set_count",

@@ -112,7 +112,7 @@ public class Beetle extends Animal implements GeoEntity {
 	}
 
 	public void playStepSound(BlockPos p_28254_, BlockState p_28255_) {
-		this.playSound(SoundEvents.SPIDER_STEP, 0.1F, 0.1F);
+//		this.playSound(SoundEvents.SPIDER_STEP, 0.005F, 1.0F);
 	}
 
 	public boolean causeFallDamage(float p_148875_, float p_148876_, DamageSource p_148877_) {

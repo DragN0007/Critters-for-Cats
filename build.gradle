@@ -99,6 +99,7 @@ dependencies {
 //    implementation fg.deobf("curse.maven:glitchcore-955399:5787839")
 //    implementation fg.deobf("curse.maven:terrablender-563928:5378180")
 //    implementation "curse.maven:terralith-513688:5512076"
+    implementation fg.deobf("curse.maven:jade-324717:5876199")
 }
 
 tasks.named('processResources', ProcessResources).configure {

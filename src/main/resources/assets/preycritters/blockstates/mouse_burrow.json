@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "preycritters:block/mouse_burrow",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "preycritters:block/mouse_burrow"
+    },
+    "facing=south": {
+      "model": "preycritters:block/mouse_burrow",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "preycritters:block/mouse_burrow",
+      "y": 270
+    }
+  }
+}

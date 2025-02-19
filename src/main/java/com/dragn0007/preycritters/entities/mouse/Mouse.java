@@ -1,7 +1,11 @@
 package com.dragn0007.preycritters.entities.mouse;
 
+import com.dragn0007.preycritters.blocks.MouseBurrow;
+import com.dragn0007.preycritters.blocks.VoleBurrow;
 import com.dragn0007.preycritters.entities.coyote.Coyote;
+import com.dragn0007.preycritters.entities.vole.Vole;
 import net.minecraft.core.BlockPos;
+import net.minecraft.core.Direction;
 import net.minecraft.nbt.CompoundTag;
 import net.minecraft.network.syncher.EntityDataAccessor;
 import net.minecraft.network.syncher.EntityDataSerializers;
@@ -10,6 +14,7 @@ import net.minecraft.resources.ResourceLocation;
 import net.minecraft.server.level.ServerLevel;
 import net.minecraft.sounds.SoundEvent;
 import net.minecraft.sounds.SoundEvents;
+import net.minecraft.util.RandomSource;
 import net.minecraft.world.DifficultyInstance;
 import net.minecraft.world.damagesource.DamageSource;
 import net.minecraft.world.entity.*;
@@ -20,7 +25,10 @@ import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.npc.Villager;
 import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.level.Level;
+import net.minecraft.world.level.LevelAccessor;
+import net.minecraft.world.level.LevelReader;
 import net.minecraft.world.level.ServerLevelAccessor;
+import net.minecraft.world.level.block.InfestedBlock;
 import net.minecraft.world.level.block.state.BlockState;
 import software.bernie.geckolib.animatable.GeoEntity;
 import software.bernie.geckolib.core.animatable.GeoAnimatable;
@@ -33,6 +41,7 @@ import software.bernie.geckolib.core.object.PlayState;
 import software.bernie.geckolib.util.GeckoLibUtil;
 
 import javax.annotation.Nullable;
+import java.util.EnumSet;
 import java.util.Random;
 
 public class Mouse extends Animal implements GeoEntity {
@@ -53,6 +62,8 @@ public class Mouse extends Animal implements GeoEntity {
 		this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(7, new RandomLookAroundGoal(this));
+
+		this.goalSelector.addGoal(2, new Mouse.MouseBurrowBackGoal(this));
 
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Wolf.class, 15.0F, 1.8F, 1.8F));
 		this.goalSelector.addGoal(1, new AvoidEntityGoal<>(this, Fox.class, 15.0F, 1.8F, 1.8F));
@@ -103,6 +114,63 @@ public class Mouse extends Animal implements GeoEntity {
 	@Override
 	public AnimatableInstanceCache getAnimatableInstanceCache() {
 		return this.geoCache;
+	}
+
+	public float getWalkTargetValue(BlockPos pos, LevelReader levelReader) {
+		return MouseBurrow.isCompatibleBurrow(levelReader.getBlockState(pos.below())) ? 10.0F : super.getWalkTargetValue(pos, levelReader);
+	}
+
+	static class MouseBurrowBackGoal extends RandomStrollGoal {
+		@Nullable
+		public Direction selectedDirection;
+		public boolean goBackToBurrow;
+
+		public MouseBurrowBackGoal(Mouse mouse) {
+			super(mouse, 1.0D, 10);
+			this.setFlags(EnumSet.of(Goal.Flag.MOVE));
+		}
+
+		public boolean canUse() {
+			if (this.mob.getTarget() != null) {
+				return false;
+			} else if (!this.mob.getNavigation().isDone()) {
+				return false;
+			} else {
+				RandomSource randomsource = this.mob.getRandom();
+				if (net.minecraftforge.event.ForgeEventFactory.getMobGriefingEvent(this.mob.level(), this.mob) && randomsource.nextInt(reducedTickDelay(10)) == 0) {
+					this.selectedDirection = Direction.getRandom(randomsource);
+					BlockPos blockpos = BlockPos.containing(this.mob.getX(), this.mob.getY() + 0.5D, this.mob.getZ()).relative(this.selectedDirection);
+					BlockState blockstate = this.mob.level().getBlockState(blockpos);
+					if (InfestedBlock.isCompatibleHostBlock(blockstate)) {
+						this.goBackToBurrow = true;
+						return true;
+					}
+				}
+
+				this.goBackToBurrow = false;
+				return super.canUse();
+			}
+		}
+
+		public boolean canContinueToUse() {
+			return !this.goBackToBurrow && super.canContinueToUse();
+		}
+
+		public void start() {
+			if (!this.goBackToBurrow) {
+				super.start();
+			} else {
+				LevelAccessor levelaccessor = this.mob.level();
+				BlockPos blockpos = BlockPos.containing(this.mob.getX(), this.mob.getY() + 0.5D, this.mob.getZ()).relative(this.selectedDirection);
+				BlockState blockstate = levelaccessor.getBlockState(blockpos);
+				if (MouseBurrow.isCompatibleBurrow(blockstate)) {
+					levelaccessor.setBlock(blockpos, MouseBurrow.infestedStateByHost(blockstate), 3);
+					this.mob.spawnAnim();
+					this.mob.discard();
+				}
+
+			}
+		}
 	}
 
 	public SoundEvent getAmbientSound() {

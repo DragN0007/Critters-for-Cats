@@ -20,6 +20,7 @@ public class CTCConfigFeatures {
     public static final ResourceKey<ConfiguredFeature<?, ?>> DIRT_VOLE_BURROW = registerKey("dirt_vole_burrow");
     public static final ResourceKey<ConfiguredFeature<?, ?>> SNOW_VOLE_BURROW = registerKey("snow_vole_burrow");
     public static final ResourceKey<ConfiguredFeature<?, ?>> BUG_LOG = registerKey("bug_log");
+    public static final ResourceKey<ConfiguredFeature<?, ?>> MOUSE_BURROW = registerKey("mouse_burrow");
 
 
     public static void bootstrap(BootstapContext<ConfiguredFeature<?, ?>> context) {
@@ -29,6 +30,7 @@ public class CTCConfigFeatures {
         register(context, DIRT_VOLE_BURROW, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.DIRT_VOLE_BURROW.get())));
         register(context, SNOW_VOLE_BURROW, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.SNOW_VOLE_BURROW.get())));
         register(context, BUG_LOG, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.BUG_LOG.get())));
+        register(context, MOUSE_BURROW, Feature.SIMPLE_BLOCK, new SimpleBlockConfiguration(BlockStateProvider.simple(CTCBlocks.MOUSE_BURROW.get())));
     }
     
     public static ResourceKey<ConfiguredFeature<?, ?>> registerKey(String name) {

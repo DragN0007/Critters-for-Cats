@@ -8,7 +8,7 @@ import net.minecraft.world.phys.shapes.VoxelShape;
 
 import java.util.stream.Stream;
 
-public class CoyoteSkull extends DecorRotator {
+public class CoyoteSkull extends SkullRotator {
 
     public CoyoteSkull() {
         super(NORTH, EAST, SOUTH, WEST);

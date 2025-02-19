@@ -4,7 +4,10 @@
     "to_place": {
       "type": "minecraft:simple_state_provider",
       "state": {
-        "Name": "preycritters:bug_log"
+        "Name": "preycritters:bug_log",
+        "Properties": {
+          "facing": "north"
+        }
       }
     }
   }

@@ -1,0 +1,19 @@
+{
+  "variants": {
+    "facing=east": {
+      "model": "preycritters:block/small_animal_skull",
+      "y": 90
+    },
+    "facing=north": {
+      "model": "preycritters:block/small_animal_skull"
+    },
+    "facing=south": {
+      "model": "preycritters:block/small_animal_skull",
+      "y": 180
+    },
+    "facing=west": {
+      "model": "preycritters:block/small_animal_skull",
+      "y": 270
+    }
+  }
+}

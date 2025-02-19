@@ -1,6 +1,7 @@
 package com.dragn0007.preycritters.blocks;
 
 import com.dragn0007.preycritters.entities.EntityTypes;
+import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.vole.Vole;
 import com.dragn0007.preycritters.entities.vole.VoleModel;
 import com.google.common.collect.Maps;
@@ -18,7 +19,6 @@ import net.minecraft.world.level.block.Blocks;
 import net.minecraft.world.level.block.state.BlockState;
 import net.minecraft.world.level.block.state.properties.Property;
 import net.minecraft.world.phys.shapes.BooleanOp;
-import net.minecraft.world.phys.shapes.CollisionContext;
 import net.minecraft.world.phys.shapes.Shapes;
 import net.minecraft.world.phys.shapes.VoxelShape;
 
@@ -27,7 +27,7 @@ import java.util.Random;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 
-public class VoleBurrow extends BurrowRotator {
+public class MouseBurrow extends BurrowRotator {
 
     public static final VoxelShape NORTH = Stream.of(
             Block.box(0, 0, 0, 16, 8, 16)
@@ -52,7 +52,7 @@ public class VoleBurrow extends BurrowRotator {
         return BLOCK_BY_BURROW.containsKey(state.getBlock());
     }
 
-    public VoleBurrow(Block block) {
+    public MouseBurrow(Block block) {
         super(NORTH, EAST, SOUTH, WEST);
         BLOCK_BY_BURROW.put(block, this);
     }
@@ -63,16 +63,16 @@ public class VoleBurrow extends BurrowRotator {
 
     public void spawnVole(ServerLevel level, BlockPos pos) {
         Random random = new Random();
-        int i = random.nextInt(3); //33% chance of vole spawn when broken
-        Vole vole = EntityTypes.VOLE_ENTITY.get().create(level);
-        if (vole != null) {
+        int i = random.nextInt(3); //33% chance of mouse spawn when broken
+        Mouse mouse = EntityTypes.MOUSE_ENTITY.get().create(level);
+        if (mouse != null) {
             if (i == 0) {
-                vole.moveTo((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
-                vole.setVariant(random.nextInt(VoleModel.Variant.values().length));
-                level.addFreshEntity(vole);
-                level.addParticle(ParticleTypes.POOF, vole.getRandomX(0.6D), vole.getRandomY(), vole.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
-                vole.playSound(SoundEvents.BEEHIVE_EXIT, 0.5f, 1f);
-                vole.level().broadcastEntityEvent(vole, (byte)20);
+                mouse.moveTo((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
+                mouse.setVariant(random.nextInt(VoleModel.Variant.values().length));
+                level.addFreshEntity(mouse);
+                level.addParticle(ParticleTypes.POOF, mouse.getRandomX(0.6D), mouse.getRandomY(), mouse.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
+                mouse.playSound(SoundEvents.BEEHIVE_EXIT, 0.5f, 1f);
+                mouse.level().broadcastEntityEvent(mouse, (byte)20);
             } else {
                 return; //don't do anything if the int doesn't match 0
             }

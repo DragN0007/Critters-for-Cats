@@ -1,6 +1,7 @@
 package com.dragn0007.preycritters.blocks;
 
 import com.dragn0007.preycritters.CrittersForCats;
+import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.items.CTCItems;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
@@ -23,14 +24,17 @@ public class CTCBlocks {
     public static final RegistryObject<Block> BLUE_BIRD_NEST = registerBlock("blue_bird_nest",
             () -> new BirdNest());
     public static final RegistryObject<Block> DIRT_VOLE_BURROW = registerBlock("dirt_vole_burrow",
-            () -> new VoleBurrow(Blocks.DIRT, BlockBehaviour.Properties.copy(Blocks.DIRT).noOcclusion()));
+            () -> new VoleBurrow(Blocks.DIRT));
     public static final RegistryObject<Block> SNOW_VOLE_BURROW = registerBlock("snow_vole_burrow",
-            () -> new VoleBurrow(Blocks.SNOW, BlockBehaviour.Properties.of().strength(0.1F).noOcclusion()));
+            () -> new VoleBurrow(Blocks.SNOW));
     public static final RegistryObject<Block> BUG_LOG = registerBlock("bug_log",
             () -> new BugLog());
-
     public static final RegistryObject<Block> COYOTE_SKULL = registerBlock("coyote_skull",
             () -> new CoyoteSkull());
+    public static final RegistryObject<Block> MOUSE_BURROW = registerBlock("mouse_burrow",
+            () -> new MouseBurrow(Blocks.DIRT));
+    public static final RegistryObject<Block> SMALL_ANIMAL_SKULL = registerBlock("small_animal_skull",
+            () -> new SmallAnimalSkull());
 
     public static <T extends Block>RegistryObject<T> registerBlock(String name, Supplier<T> block){
         RegistryObject<T> toReturn = BLOCKS.register(name, block);
