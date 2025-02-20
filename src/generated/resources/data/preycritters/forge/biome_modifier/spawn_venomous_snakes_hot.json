@@ -1,0 +1,10 @@
+{
+  "type": "forge:add_spawns",
+  "biomes": "#forge:is_hot/overworld",
+  "spawners": {
+    "type": "preycritters:venomous_snake",
+    "maxCount": 1,
+    "minCount": 1,
+    "weight": 10
+  }
+}
