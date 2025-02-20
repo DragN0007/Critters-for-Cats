@@ -3,8 +3,12 @@ package com.dragn0007.preycritters.entities;
 import com.dragn0007.preycritters.entities.beetle.Beetle;
 import com.dragn0007.preycritters.entities.coyote.Coyote;
 import com.dragn0007.preycritters.entities.fish.SmallFish;
+import com.dragn0007.preycritters.entities.fox.VFox;
 import com.dragn0007.preycritters.entities.frog.SmallFrog;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
+import com.dragn0007.preycritters.entities.snake.LethalSnake;
+import com.dragn0007.preycritters.entities.snake.Snake;
+import com.dragn0007.preycritters.entities.snake.VenomousSnake;
 import com.dragn0007.preycritters.entities.songbird.Songbird;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
 import com.dragn0007.preycritters.entities.vole.Vole;
@@ -49,7 +53,7 @@ public class EntityTypes {
     public static final RegistryObject<EntityType<Coyote>> COYOTE_ENTITY = ENTITY_TYPES.register("coyote",
             () -> EntityType.Builder.of(Coyote::new,
                             MobCategory.CREATURE)
-                    .sized(0.8f,0.8f)
+                    .sized(1.0f,1.0f)
                     .build(new ResourceLocation(MODID,"coyote").toString()));
 
     public static final RegistryObject<EntityType<Songbird>> SONGBIRD_ENTITY = ENTITY_TYPES.register("songbird",
@@ -75,6 +79,30 @@ public class EntityTypes {
                             MobCategory.CREATURE)
                     .sized(1.2f,1.2f)
                     .build(new ResourceLocation(MODID,"v_wolf").toString()));
+
+    public static final RegistryObject<EntityType<VFox>> V_FOX_ENTITY = ENTITY_TYPES.register("v_fox",
+            () -> EntityType.Builder.of(VFox::new,
+                            MobCategory.CREATURE)
+                    .sized(0.6F, 0.7F)
+                    .build(new ResourceLocation(MODID,"v_fox").toString()));
+
+    public static final RegistryObject<EntityType<Snake>> SNAKE_ENTITY = ENTITY_TYPES.register("snake",
+            () -> EntityType.Builder.of(Snake::new,
+                            MobCategory.CREATURE)
+                    .sized(0.7F, 0.7F)
+                    .build(new ResourceLocation(MODID,"snake").toString()));
+
+    public static final RegistryObject<EntityType<VenomousSnake>> VENOMOUS_SNAKE_ENTITY = ENTITY_TYPES.register("venomous_snake",
+            () -> EntityType.Builder.of(VenomousSnake::new,
+                            MobCategory.CREATURE)
+                    .sized(0.7F, 0.7F)
+                    .build(new ResourceLocation(MODID,"venomous_snake").toString()));
+
+    public static final RegistryObject<EntityType<LethalSnake>> LETHAL_SNAKE_ENTITY = ENTITY_TYPES.register("lethal_snake",
+            () -> EntityType.Builder.of(LethalSnake::new,
+                            MobCategory.CREATURE)
+                    .sized(0.7F, 0.7F)
+                    .build(new ResourceLocation(MODID,"lethal_snake").toString()));
 
 }
 

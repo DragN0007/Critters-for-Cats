@@ -11,6 +11,10 @@
   "item.preycritters.small_fish_spawn_egg": "Small Fish Spawn Egg",
   "item.preycritters.small_frog_spawn_egg": "Small Frog Spawn Egg",
   "item.preycritters.v_wolf_spawn_egg": "V-Wolf Spawn Egg",
+  "item.preycritters.v_fox_spawn_egg": "V-Fox Spawn Egg",
+  "item.preycritters.snake_spawn_egg": "Snake Spawn Egg",
+  "item.preycritters.venomous_snake_spawn_egg": "Venomous Snake Spawn Egg",
+  "item.preycritters.lethal_snake_spawn_egg": "Lethal Snake Spawn Egg",
 
 
   "item.preycritters.small_fish_bucket": "Small Fish Bucket",
@@ -36,6 +40,12 @@
   "item.preycritters.small_frog": "Raw Frog",
   "entity.preycritters.v_wolf": "V-Wolf",
   "item.preycritters.wolf": "Raw Wolf",
+  "entity.preycritters.v_fox": "V-Fox",
+  "item.preycritters.fox": "Raw Fox",
+  "entity.preycritters.snake": "Snake",
+  "entity.preycritters.venomous_snake": "Snake",
+  "entity.preycritters.lethal_snake": "Snake",
+  "item.preycritters.snake": "Raw Snake",
 
   "item.preycritters.white_bird_egg": "White Bird Egg",
   "item.preycritters.blue_bird_egg": "Blue Bird Egg",
@@ -50,6 +60,7 @@
   "item.preycritters.songbird_feather": "Songbird Feather",
   "item.preycritters.wolf_hide": "Wolf Hide",
   "item.preycritters.wolf_skull_item": "Wolf Skull",
+  "item.preycritters.fox_tail": "Fox Tail",
 
 
   "block.preycritters.white_bird_nest": "Bird Nest",

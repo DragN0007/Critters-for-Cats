@@ -1,6 +1,7 @@
 package com.dragn0007.preycritters.entities.coyote;
 
 import com.dragn0007.preycritters.entities.ai.CoyoteFollowLeaderGoal;
+import com.dragn0007.preycritters.entities.fox.VFox;
 import com.dragn0007.preycritters.entities.frog.SmallFrog;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
@@ -24,6 +25,7 @@ import net.minecraft.world.entity.*;
 import net.minecraft.world.entity.ai.attributes.AttributeSupplier;
 import net.minecraft.world.entity.ai.attributes.Attributes;
 import net.minecraft.world.entity.ai.goal.*;
+import net.minecraft.world.entity.ai.goal.target.HurtByTargetGoal;
 import net.minecraft.world.entity.ai.goal.target.NearestAttackableTargetGoal;
 import net.minecraft.world.entity.animal.*;
 import net.minecraft.world.entity.player.Player;
@@ -60,6 +62,7 @@ public class Coyote extends Animal implements GeoEntity {
 
 	public void registerGoals() {
 		this.goalSelector.addGoal(0, new FloatGoal(this));
+		this.goalSelector.addGoal(1, new HurtByTargetGoal(this));
 		this.goalSelector.addGoal(4, new FollowParentGoal(this, 1.1D));
 		this.goalSelector.addGoal(5, new WaterAvoidingRandomStrollGoal(this, 1.0D));
 		this.goalSelector.addGoal(6, new LookAtPlayerGoal(this, Player.class, 6.0F));
@@ -79,6 +82,7 @@ public class Coyote extends Animal implements GeoEntity {
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, SmallFrog.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Squirrel.class, false));
 		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, Vole.class, false));
+		this.targetSelector.addGoal(3, new NearestAttackableTargetGoal<>(this, VFox.class, false));
 		this.goalSelector.addGoal(1, new MeleeAttackGoal(this, 1.8D, true));
 	}
 

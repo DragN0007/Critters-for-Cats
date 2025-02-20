@@ -42,6 +42,11 @@ public class BiomeHitter {
     public static final ResourceKey<BiomeModifier> SPAWN_FROGS_SWAMPS = registerKey("spawn_frogs_swamps");
     public static final ResourceKey<BiomeModifier> SPAWN_WOLVES_TAIGAS = registerKey("spawn_wolves_taigas");
     public static final ResourceKey<BiomeModifier> SPAWN_WOLVES_SNOWY = registerKey("spawn_wolves_snowy");
+    public static final ResourceKey<BiomeModifier> SPAWN_FOXES_TAIGAS = registerKey("spawn_foxes_taigas");
+    public static final ResourceKey<BiomeModifier> SPAWN_FOXES_FORESTS = registerKey("spawn_foxes_forests");
+    public static final ResourceKey<BiomeModifier> SPAWN_SNAKES_FORESTS = registerKey("spawn_snakes_forests");
+    public static final ResourceKey<BiomeModifier> SPAWN_VENOMOUS_SNAKES_HOT = registerKey("spawn_venomous_snakes_hot");
+    public static final ResourceKey<BiomeModifier> SPAWN_LETHAL_SNAKES_HOT = registerKey("spawn_lethal_snakes_hot");
 
 
     public static void bootstrap(BootstapContext<BiomeModifier> context) {
@@ -214,6 +219,45 @@ public class BiomeHitter {
                         8,
                         1,
                         4
+                ))));
+
+
+        context.register(SPAWN_FOXES_TAIGAS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_TAIGA),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.V_FOX_ENTITY.get(),
+                        10,
+                        1,
+                        2
+                ))));
+        context.register(SPAWN_FOXES_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.V_FOX_ENTITY.get(),
+                        10,
+                        1,
+                        2
+                ))));
+
+
+        context.register(SPAWN_SNAKES_FORESTS, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(BiomeTags.IS_FOREST),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.SNAKE_ENTITY.get(),
+                        10,
+                        1,
+                        1
+                ))));
+        context.register(SPAWN_VENOMOUS_SNAKES_HOT, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_HOT_OVERWORLD),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.VENOMOUS_SNAKE_ENTITY.get(),
+                        10,
+                        1,
+                        1
+                ))));
+        context.register(SPAWN_LETHAL_SNAKES_HOT, new ForgeBiomeModifiers.AddSpawnsBiomeModifier(
+                biomes.getOrThrow(Tags.Biomes.IS_HOT_OVERWORLD),
+                List.of(new MobSpawnSettings.SpawnerData(EntityTypes.LETHAL_SNAKE_ENTITY.get(),
+                        10,
+                        1,
+                        1
                 ))));
     }
 

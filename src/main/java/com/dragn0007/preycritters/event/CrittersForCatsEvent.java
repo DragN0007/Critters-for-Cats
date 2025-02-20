@@ -8,10 +8,13 @@ import com.dragn0007.preycritters.entities.coyote.Coyote;
 import com.dragn0007.preycritters.entities.coyote.CoyoteRender;
 import com.dragn0007.preycritters.entities.fish.SmallFish;
 import com.dragn0007.preycritters.entities.fish.SmallFishRender;
+import com.dragn0007.preycritters.entities.fox.VFox;
+import com.dragn0007.preycritters.entities.fox.VFoxRender;
 import com.dragn0007.preycritters.entities.frog.SmallFrog;
 import com.dragn0007.preycritters.entities.frog.SmallFrogRender;
 import com.dragn0007.preycritters.entities.mouse.Mouse;
 import com.dragn0007.preycritters.entities.mouse.MouseRender;
+import com.dragn0007.preycritters.entities.snake.*;
 import com.dragn0007.preycritters.entities.songbird.Songbird;
 import com.dragn0007.preycritters.entities.songbird.SongbirdRender;
 import com.dragn0007.preycritters.entities.squirrel.Squirrel;
@@ -46,6 +49,10 @@ public class CrittersForCatsEvent {
         event.put(EntityTypes.SMALL_FISH_ENTITY.get(), SmallFish.createAttributes().build());
         event.put(EntityTypes.SMALL_FROG_ENTITY.get(), SmallFrog.createAttributes().build());
         event.put(EntityTypes.V_WOLF_ENTITY.get(), VWolf.createAttributes().build());
+        event.put(EntityTypes.V_FOX_ENTITY.get(), VFox.createAttributes().build());
+        event.put(EntityTypes.SNAKE_ENTITY.get(), Snake.createAttributes().build());
+        event.put(EntityTypes.VENOMOUS_SNAKE_ENTITY.get(), VenomousSnake.createAttributes().build());
+        event.put(EntityTypes.LETHAL_SNAKE_ENTITY.get(), LethalSnake.createAttributes().build());
     }
 
     @SubscribeEvent
@@ -59,6 +66,10 @@ public class CrittersForCatsEvent {
         EntityRenderers.register(EntityTypes.SMALL_FISH_ENTITY.get(), SmallFishRender::new);
         EntityRenderers.register(EntityTypes.SMALL_FROG_ENTITY.get(), SmallFrogRender::new);
         EntityRenderers.register(EntityTypes.V_WOLF_ENTITY.get(), VWolfRender::new);
+        EntityRenderers.register(EntityTypes.V_FOX_ENTITY.get(), VFoxRender::new);
+        EntityRenderers.register(EntityTypes.SNAKE_ENTITY.get(), SnakeRender::new);
+        EntityRenderers.register(EntityTypes.VENOMOUS_SNAKE_ENTITY.get(), VenomousSnakeRender::new);
+        EntityRenderers.register(EntityTypes.LETHAL_SNAKE_ENTITY.get(), LethalSnakeRender::new);
     }
 
     @SubscribeEvent
@@ -72,6 +83,10 @@ public class CrittersForCatsEvent {
         event.register(EntityTypes.SMALL_FISH_ENTITY.get(), SpawnPlacements.Type.IN_WATER, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, AbstractSchoolingFish::checkSurfaceWaterAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.SMALL_FROG_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
         event.register(EntityTypes.V_WOLF_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.V_FOX_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Animal::checkAnimalSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.SNAKE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, Snake::checkSnakeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.VENOMOUS_SNAKE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, VenomousSnake::checkVenomousSnakeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
+        event.register(EntityTypes.LETHAL_SNAKE_ENTITY.get(), SpawnPlacements.Type.ON_GROUND, Heightmap.Types.MOTION_BLOCKING_NO_LEAVES, LethalSnake::checkLethalSnakeSpawnRules, SpawnPlacementRegisterEvent.Operation.AND);
     }
 
 

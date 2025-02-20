@@ -1,10 +1,12 @@
-// 1.20.1	2025-02-19T02:37:45.6988059	Item Models: preycritters
+// 1.20.1	2025-02-20T02:43:26.3300212	Item Models: preycritters
 cc95f1b07a5bd7169f26f58dd84e61f2c2f379df assets/preycritters/models/item/beetle.json
 b3b8318f9632715bb5a595bf8b04ac729b636c2f assets/preycritters/models/item/blue_bird_egg.json
 3ea76bb71674013dc083bf2eb7128e1b182d89e2 assets/preycritters/models/item/coyote.json
 a2f4336268b41bb231f6b3cd63c78450d97a5934 assets/preycritters/models/item/coyote_heart.json
 c57e094dfcef6e0cc17aa6081c0fbe35506636ca assets/preycritters/models/item/coyote_skull_item.json
 a727b2ea89ccefff7dbbf5e7ee383120a615a52d assets/preycritters/models/item/coyote_tooth.json
+0b4c228079db6f0623a8d712741a2ba7e8491b23 assets/preycritters/models/item/fox.json
+e34be60d3d6c996251791596cbe8312530ffb2ab assets/preycritters/models/item/fox_tail.json
 15bf313a5db6d04c8c9c29505cde594b33ffb5bf assets/preycritters/models/item/mouse.json
 e9f7512cde1243840fbb1080ff203933e34b98e4 assets/preycritters/models/item/mouse_bile.json
 c470417e866406efdef6f3838d83754110226828 assets/preycritters/models/item/mouse_eye.json
@@ -15,6 +17,7 @@ bb9d58d08b79cc67aa2181a71a272bc046da62b8 assets/preycritters/models/item/small_a
 670807f3e9c41d7a40bcdf3ac8f56566493eeb87 assets/preycritters/models/item/small_fish_scales.json
 8e970fa1286fb1459ba97bc318a7ca596bf64a22 assets/preycritters/models/item/small_fish_skeleton.json
 822dc620e81e567351efd40e1d28c302ddf59904 assets/preycritters/models/item/small_frog.json
+d05646043f37537ac60cf577b1185d258dbe830a assets/preycritters/models/item/snake.json
 1a6174c08ed6fe7a64a9b33079216622322a14fa assets/preycritters/models/item/songbird.json
 0dbde8053c15f8abb76cece9ffec9d1c97a1363a assets/preycritters/models/item/songbird_feather.json
 e9bd7a4c983cbd1a52d015c695ae230a84b2a272 assets/preycritters/models/item/squirrel.json

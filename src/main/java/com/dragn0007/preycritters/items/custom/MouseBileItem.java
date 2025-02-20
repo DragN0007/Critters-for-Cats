@@ -12,8 +12,6 @@ import net.minecraft.world.entity.player.Player;
 import net.minecraft.world.item.*;
 import net.minecraft.world.level.Level;
 
-import java.util.Random;
-
 public class MouseBileItem extends Item {
 
    public MouseBileItem(Properties properties) {

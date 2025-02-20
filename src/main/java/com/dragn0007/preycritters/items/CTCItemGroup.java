@@ -28,6 +28,10 @@ public class CTCItemGroup {
                         output.accept(CTCItems.SMALL_FISH_SPAWN_EGG.get());
                         output.accept(CTCItems.SMALL_FROG_SPAWN_EGG.get());
                         output.accept(CTCItems.V_WOLF_SPAWN_EGG.get());
+                        output.accept(CTCItems.V_FOX_SPAWN_EGG.get());
+                        output.accept(CTCItems.SNAKE_SPAWN_EGG.get());
+                        output.accept(CTCItems.VENOMOUS_SNAKE_SPAWN_EGG.get());
+                        output.accept(CTCItems.LETHAL_SNAKE_SPAWN_EGG.get());
 
                         output.accept(CTCItems.MOUSE.get());
                         output.accept(CTCItems.SQUIRREL.get());
@@ -38,6 +42,8 @@ public class CTCItemGroup {
                         output.accept(CTCItems.SMALL_FISH.get());
                         output.accept(CTCItems.SMALL_FROG.get());
                         output.accept(CTCItems.WOLF.get());
+                        output.accept(CTCItems.FOX.get());
+                        output.accept(CTCItems.SNAKE.get());
 
                         output.accept(CTCItems.MOUSE_BILE.get());
                         output.accept(CTCItems.MOUSE_EYE.get());
@@ -52,6 +58,7 @@ public class CTCItemGroup {
                         output.accept(CTCItems.SMALL_FISH_SCALES.get());
                         output.accept(CTCItems.WOLF_HIDE.get());
                         output.accept(CTCItems.WOLF_SKULL_ITEM.get());
+                        output.accept(CTCItems.FOX_TAIL.get());
 
                         output.accept(CTCItems.SMALL_FISH_BUCKET.get());
 

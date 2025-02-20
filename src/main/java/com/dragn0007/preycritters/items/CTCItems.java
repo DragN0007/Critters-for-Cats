@@ -10,7 +10,6 @@ import net.minecraft.world.effect.MobEffects;
 import net.minecraft.world.food.FoodProperties;
 import net.minecraft.world.item.BlockItem;
 import net.minecraft.world.item.Item;
-import net.minecraft.world.item.MilkBucketItem;
 import net.minecraft.world.item.MobBucketItem;
 import net.minecraft.world.level.material.Fluids;
 import net.minecraftforge.common.ForgeSpawnEggItem;
@@ -43,6 +42,14 @@ public class CTCItems {
             () -> new ForgeSpawnEggItem(EntityTypes.SMALL_FROG_ENTITY, 0x2c482d, 0xd8d8c8, new Item.Properties().stacksTo(64)));
     public static final RegistryObject<Item> V_WOLF_SPAWN_EGG = ITEMS.register("v_wolf_spawn_egg",
             () -> new ForgeSpawnEggItem(EntityTypes.V_WOLF_ENTITY, 0x7e766e, 0x5c544e, new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> V_FOX_SPAWN_EGG = ITEMS.register("v_fox_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypes.V_FOX_ENTITY, 0x883820, 0x563f34, new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> SNAKE_SPAWN_EGG = ITEMS.register("snake_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypes.SNAKE_ENTITY, 0x363636, 0x563f34, new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> VENOMOUS_SNAKE_SPAWN_EGG = ITEMS.register("venomous_snake_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypes.VENOMOUS_SNAKE_ENTITY, 0x393630, 0xad9681, new Item.Properties().stacksTo(64)));
+    public static final RegistryObject<Item> LETHAL_SNAKE_SPAWN_EGG = ITEMS.register("lethal_snake_spawn_egg",
+            () -> new ForgeSpawnEggItem(EntityTypes.LETHAL_SNAKE_ENTITY, 0x2b1d19, 0x6a3e2f, new Item.Properties().stacksTo(64)));
 
     //Food
     public static final RegistryObject<Item> MOUSE = ITEMS.register("mouse",
@@ -69,6 +76,10 @@ public class CTCItems {
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).build())));
     public static final RegistryObject<Item> WOLF = ITEMS.register("wolf",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(12).build())));
+    public static final RegistryObject<Item> FOX = ITEMS.register("fox",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).build())));
+    public static final RegistryObject<Item> SNAKE = ITEMS.register("snake",
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).build())));
 
     public static final RegistryObject<Item> WHITE_BIRD_EGG = ITEMS.register("white_bird_egg",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).build())));
@@ -95,6 +106,8 @@ public class CTCItems {
             () -> new Item(new Item.Properties()));
     public static final RegistryObject<Item> WOLF_SKULL_ITEM = ITEMS.register("wolf_skull_item",
             () -> new BlockItem(CTCBlocks.WOLF_SKULL.get(), (new Item.Properties()).stacksTo(1)));
+    public static final RegistryObject<Item> FOX_TAIL = ITEMS.register("fox_tail",
+            () -> new Item(new Item.Properties()));
 
     public static void register(IEventBus eventBus) {
         ITEMS.register(eventBus);

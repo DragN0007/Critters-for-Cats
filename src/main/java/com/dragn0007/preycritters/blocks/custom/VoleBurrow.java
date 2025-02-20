@@ -1,6 +1,8 @@
 package com.dragn0007.preycritters.blocks.custom;
 
 import com.dragn0007.preycritters.entities.EntityTypes;
+import com.dragn0007.preycritters.entities.mouse.Mouse;
+import com.dragn0007.preycritters.entities.snake.*;
 import com.dragn0007.preycritters.entities.vole.Vole;
 import com.dragn0007.preycritters.entities.vole.VoleModel;
 import com.google.common.collect.Maps;
@@ -62,18 +64,42 @@ public class VoleBurrow extends BurrowRotator {
 
     public void spawnVole(ServerLevel level, BlockPos pos) {
         Random random = new Random();
-        int i = random.nextInt(3); //33% chance of vole spawn when broken
+        int i = random.nextInt(18);
         Vole vole = EntityTypes.VOLE_ENTITY.get().create(level);
+        Snake snake = EntityTypes.SNAKE_ENTITY.get().create(level);
+        VenomousSnake vSnake = EntityTypes.VENOMOUS_SNAKE_ENTITY.get().create(level);
+        LethalSnake lSnake = EntityTypes.LETHAL_SNAKE_ENTITY.get().create(level);
         if (vole != null) {
-            if (i == 0) {
+            if (i <= 5) {
                 vole.moveTo((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
                 vole.setVariant(random.nextInt(VoleModel.Variant.values().length));
                 level.addFreshEntity(vole);
                 level.addParticle(ParticleTypes.POOF, vole.getRandomX(0.6D), vole.getRandomY(), vole.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
                 vole.playSound(SoundEvents.BEEHIVE_EXIT, 0.5f, 1f);
                 vole.level().broadcastEntityEvent(vole, (byte)20);
+            } else if (i == 6) {
+                snake.moveTo((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
+                snake.setVariant(random.nextInt(SnakeModel.Variant.values().length));
+                level.addFreshEntity(snake);
+                level.addParticle(ParticleTypes.POOF, snake.getRandomX(0.6D), snake.getRandomY(), snake.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
+                snake.playSound(SoundEvents.BEEHIVE_EXIT, 0.5f, 1f);
+                snake.level().broadcastEntityEvent(snake, (byte)20);
+            } else if (i == 7) {
+                vSnake.moveTo((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
+                vSnake.setVariant(random.nextInt(VenomousSnakeModel.Variant.values().length));
+                level.addFreshEntity(vSnake);
+                level.addParticle(ParticleTypes.POOF, vSnake.getRandomX(0.6D), vSnake.getRandomY(), vSnake.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
+                vSnake.playSound(SoundEvents.BEEHIVE_EXIT, 0.5f, 1f);
+                vSnake.level().broadcastEntityEvent(vSnake, (byte)20);
+            } else if (i == 8) {
+                lSnake.moveTo((double) pos.getX() + 0.5D, (double) pos.getY(), (double) pos.getZ() + 0.5D, 0.0F, 0.0F);
+                lSnake.setVariant(random.nextInt(LethalSnakeModel.Variant.values().length));
+                level.addFreshEntity(lSnake);
+                level.addParticle(ParticleTypes.POOF, lSnake.getRandomX(0.6D), lSnake.getRandomY(), lSnake.getRandomZ(0.6D), 0.7D, 0.7D, 0.7D);
+                lSnake.playSound(SoundEvents.BEEHIVE_EXIT, 0.5f, 1f);
+                lSnake.level().broadcastEntityEvent(lSnake, (byte)20);
             } else {
-                return; //don't do anything if the int doesn't match 0
+                return; //don't do anything if the int doesn't match
             }
         }
 
