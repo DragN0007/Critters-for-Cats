@@ -73,9 +73,9 @@ public class LethalSnake extends Snake implements GeoEntity {
 			if (entity instanceof LivingEntity) {
 				int i = 0;
 				if (this.level().getDifficulty() == Difficulty.NORMAL) {
-					i = 7;
+					i = 18;
 				} else if (this.level().getDifficulty() == Difficulty.HARD) {
-					i = 15;
+					i = 28;
 				}
 
 				if (i > 0) {

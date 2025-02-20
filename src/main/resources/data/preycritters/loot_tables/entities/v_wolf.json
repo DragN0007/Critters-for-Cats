@@ -76,7 +76,7 @@
       "entries": [
         {
           "type": "minecraft:item",
-          "name": "preycritters:wolf_skull",
+          "name": "preycritters:wolf_skull_item",
           "functions": [],
           "conditions": [
             {
