@@ -19,7 +19,7 @@ public class CTCRecipeMaker extends RecipeProvider implements IConditionBuilder 
     }
 
     @Override
-    protected void buildRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
+    public void buildRecipes(Consumer<FinishedRecipe> pFinishedRecipeConsumer) {
 
         ShapelessRecipeBuilder.shapeless(RecipeCategory.MISC, Items.BONE_MEAL)
                 .requires(CTCItems.SMALL_ANIMAL_BONE.get())

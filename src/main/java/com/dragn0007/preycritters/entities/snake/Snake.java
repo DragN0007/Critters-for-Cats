@@ -45,7 +45,7 @@ public class Snake extends Animal implements GeoEntity {
 		super(type, level);
 	}
 
-	private static final ResourceLocation LOOT_TABLE = new ResourceLocation(CrittersForCats.MODID, "entities/snake");
+	public static final ResourceLocation LOOT_TABLE = new ResourceLocation(CrittersForCats.MODID, "entities/snake");
 	@Override
 	public @NotNull ResourceLocation getDefaultLootTable() {
 		return LOOT_TABLE;

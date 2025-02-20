@@ -65,9 +65,9 @@ public class SmallFish extends AbstractSchoolingFish implements GeoEntity {
 		return SoundEvents.COD_FLOP;
 	}
 
-	private final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
+	public final AnimatableInstanceCache geoCache = GeckoLibUtil.createInstanceCache(this);
 
-	private <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
+	public <T extends GeoAnimatable> PlayState predicate(AnimationState<T> tAnimationState) {
 		double currentSpeed = this.getDeltaMovement().lengthSqr();
 		double speedThreshold = 0.01;
 

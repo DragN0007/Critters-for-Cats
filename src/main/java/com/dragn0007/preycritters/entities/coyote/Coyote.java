@@ -108,16 +108,16 @@ public class Coyote extends Animal implements GeoEntity {
 
 	}
 
-	private void applyStrengthEffect() {
+	public void applyStrengthEffect() {
 		MobEffectInstance speedEffectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
 		this.addEffect(speedEffectInstance);
 	}
 
-	private boolean hasStrengthEffect() {
+	public boolean hasStrengthEffect() {
 		return this.hasEffect(MobEffects.DAMAGE_BOOST);
 	}
 
-	private void removeStrengthEffect() {
+	public void removeStrengthEffect() {
 		this.removeEffect(MobEffects.DAMAGE_BOOST);
 	}
 
@@ -295,7 +295,7 @@ public class Coyote extends Animal implements GeoEntity {
 		this.entityData.define(VARIANT, 0);
 	}
 
-	private boolean isPanicking = false;
+	public boolean isPanicking = false;
 
 	public boolean isPanicking() {
 		return this.getHealth() < this.getMaxHealth() / 3 && this.isAlive() && !this.hasFollowers() && !this.isFollower();
@@ -316,9 +316,9 @@ public class Coyote extends Animal implements GeoEntity {
 			this.mob = mob;
 		}
 
-		protected final Coyote mob;
+		public final Coyote mob;
 
-		protected boolean shouldPanic() {
+		public boolean shouldPanic() {
 			return this.mob.isFreezing() || this.mob.isOnFire() || (this.mob.getHealth() < this.mob.getMaxHealth() / 3 && this.mob.isAlive() && !this.mob.hasFollowers() && !this.mob.isFollower());
 		}
 	}

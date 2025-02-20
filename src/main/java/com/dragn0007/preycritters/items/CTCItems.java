@@ -53,27 +53,27 @@ public class CTCItems {
 
     //Food
     public static final RegistryObject<Item> MOUSE = ITEMS.register("mouse",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(2).meat().build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(1.1f).meat().build())));
     public static final RegistryObject<Item> MOUSE_BILE = ITEMS.register("mouse_bile",
             () -> new MouseBileItem(new Item.Properties().stacksTo(16)));
     public static final RegistryObject<Item> MOUSE_EYE = ITEMS.register("mouse_eye",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).effect(new MobEffectInstance(MobEffects.NIGHT_VISION, 200, 0), 1F).build())));
     public static final RegistryObject<Item> SQUIRREL = ITEMS.register("squirrel",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationMod(2).meat().build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(8).saturationMod(1.1f).meat().build())));
     public static final RegistryObject<Item> VOLE = ITEMS.register("vole",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(2).meat().build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(7).saturationMod(1.1f).meat().build())));
     public static final RegistryObject<Item> BEETLE = ITEMS.register("beetle",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(2).build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(2).saturationMod(1.1f).build())));
     public static final RegistryObject<Item> COYOTE = ITEMS.register("coyote",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(10).effect(new MobEffectInstance(MobEffects.SATURATION, 4800, 0), 1F).build())));
     public static final RegistryObject<Item> COYOTE_HEART = ITEMS.register("coyote_heart",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(12).effect(new MobEffectInstance(MobEffects.SATURATION, 4800, 0), 1F).effect(new MobEffectInstance(MobEffects.DAMAGE_BOOST, 500, 0), 1F).build())));
     public static final RegistryObject<Item> SONGBIRD = ITEMS.register("songbird",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(2).build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(1.1f).build())));
     public static final RegistryObject<Item> SMALL_FISH = ITEMS.register("small_fish",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(2).build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(6).saturationMod(1.1f).build())));
     public static final RegistryObject<Item> SMALL_FROG = ITEMS.register("small_frog",
-            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(2).build())));
+            () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(5).saturationMod(1.1f).build())));
     public static final RegistryObject<Item> WOLF = ITEMS.register("wolf",
             () -> new Item(new Item.Properties().food(new FoodProperties.Builder().nutrition(12).effect(new MobEffectInstance(MobEffects.SATURATION, 4800, 0), 1F).build())));
     public static final RegistryObject<Item> FOX = ITEMS.register("fox",

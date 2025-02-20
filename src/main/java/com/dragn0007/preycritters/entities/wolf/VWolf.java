@@ -150,36 +150,36 @@ public class VWolf extends Animal implements GeoEntity {
 
 	}
 
-	private void applyStrengthEffect() {
+	public void applyStrengthEffect() {
 		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
 		this.addEffect(effectInstance);
 	}
-	private boolean hasStrengthEffect() {
+	public boolean hasStrengthEffect() {
 		return this.hasEffect(MobEffects.DAMAGE_BOOST);
 	}
-	private void removeStrengthEffect() {
+	public void removeStrengthEffect() {
 		this.removeEffect(MobEffects.DAMAGE_BOOST);
 	}
 
-	private void applyAbsorptionEffect() {
+	public void applyAbsorptionEffect() {
 		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.ABSORPTION, 200, 1, false, false);
 		this.addEffect(effectInstance);
 	}
-	private boolean hasAbsorptionEffect() {
+	public boolean hasAbsorptionEffect() {
 		return this.hasEffect(MobEffects.ABSORPTION);
 	}
-	private void removeAbsorptionEffect() {
+	public void removeAbsorptionEffect() {
 		this.removeEffect(MobEffects.ABSORPTION);
 	}
 
-	private void applyResistanceEffect() {
+	public void applyResistanceEffect() {
 		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, false);
 		this.addEffect(effectInstance);
 	}
-	private boolean hasResistanceEffect() {
+	public boolean hasResistanceEffect() {
 		return this.hasEffect(MobEffects.DAMAGE_RESISTANCE);
 	}
-	private void removeResistanceEffect() {
+	public void removeResistanceEffect() {
 		this.removeEffect(MobEffects.DAMAGE_RESISTANCE);
 	}
 
@@ -357,7 +357,7 @@ public class VWolf extends Animal implements GeoEntity {
 		this.entityData.define(VARIANT, 0);
 	}
 
-	private boolean isPanicking = false;
+	public boolean isPanicking = false;
 
 	public boolean isPanicking() {
 		return this.getHealth() < this.getMaxHealth() / 3 && this.isAlive() && !this.hasFollowers() && !this.isFollower();
@@ -378,9 +378,9 @@ public class VWolf extends Animal implements GeoEntity {
 			this.mob = mob;
 		}
 
-		protected final VWolf mob;
+		public final VWolf mob;
 
-		protected boolean shouldPanic() {
+		public boolean shouldPanic() {
 			return this.mob.isFreezing() || this.mob.isOnFire() || (this.mob.getHealth() < this.mob.getMaxHealth() / 3 && this.mob.isAlive() && !this.mob.hasFollowers() && !this.mob.isFollower());
 		}
 	}

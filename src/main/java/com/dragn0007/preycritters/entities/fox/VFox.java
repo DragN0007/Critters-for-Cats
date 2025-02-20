@@ -282,7 +282,7 @@ public class VFox extends Animal implements GeoEntity {
 		this.entityData.define(VARIANT, 0);
 	}
 
-	private boolean isPanicking = false;
+	public boolean isPanicking = false;
 
 	public boolean isPanicking() {
 		return this.getHealth() < this.getMaxHealth() / 3 && this.isAlive();
@@ -303,9 +303,9 @@ public class VFox extends Animal implements GeoEntity {
 			this.mob = mob;
 		}
 
-		protected final VFox mob;
+		public final VFox mob;
 
-		protected boolean shouldPanic() {
+		public boolean shouldPanic() {
 			return this.mob.isFreezing() || this.mob.isOnFire() || (this.mob.getHealth() < this.mob.getMaxHealth() / 3 && this.mob.isAlive());
 		}
 	}

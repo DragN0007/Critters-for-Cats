@@ -74,7 +74,7 @@ public class Songbird extends Animal implements GeoEntity, FlyingAnimal {
 		));
 	}
 
-	protected void checkFallDamage(double p_29370_, boolean p_29371_, BlockState p_29372_, BlockPos p_29373_) {
+	public void checkFallDamage(double p_29370_, boolean p_29371_, BlockState p_29372_, BlockPos p_29373_) {
 	}
 
 	@Override
@@ -117,7 +117,7 @@ public class Songbird extends Animal implements GeoEntity, FlyingAnimal {
 	}
 
 	@Override
-	protected PathNavigation createNavigation(Level level) {
+	public PathNavigation createNavigation(Level level) {
 		FlyingPathNavigation flyingpathnavigation = new FlyingPathNavigation(this, level);
 		flyingpathnavigation.setCanOpenDoors(false);
 		flyingpathnavigation.setCanFloat(true);
@@ -145,7 +145,7 @@ public class Songbird extends Animal implements GeoEntity, FlyingAnimal {
 		}
 
 		@Nullable
-		protected Vec3 getPosition() {
+		public Vec3 getPosition() {
 			Vec3 vec3 = null;
 			if (this.mob.isInWater()) {
 				vec3 = LandRandomPos.getPos(this.mob, 15, 15);
@@ -159,7 +159,7 @@ public class Songbird extends Animal implements GeoEntity, FlyingAnimal {
 		}
 
 		@Nullable
-		private Vec3 getTreePos() {
+		public Vec3 getTreePos() {
 			BlockPos blockpos = this.mob.blockPosition();
 			BlockPos.MutableBlockPos blockpos$mutableblockpos = new BlockPos.MutableBlockPos();
 			BlockPos.MutableBlockPos blockpos$mutableblockpos1 = new BlockPos.MutableBlockPos();

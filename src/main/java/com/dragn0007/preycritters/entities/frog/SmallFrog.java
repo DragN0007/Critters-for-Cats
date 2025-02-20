@@ -122,17 +122,17 @@ public class SmallFrog extends Animal implements GeoEntity {
 
 	}
 
-	private void applySpeedEffect() {
+	public void applySpeedEffect() {
 		MobEffect effect = MobEffect.byId(1);
 		MobEffectInstance speedEffectInstance = new MobEffectInstance(effect, 200, 1, false, false);
 		this.addEffect(speedEffectInstance);
 	}
 
-	private boolean hasSpeedEffect() {
+	public boolean hasSpeedEffect() {
 		return this.hasEffect(MobEffect.byId(1));
 	}
 
-	private void removeSpeedEffect() {
+	public void removeSpeedEffect() {
 		this.removeEffect(MobEffect.byId(1));
 	}
 

@@ -17,7 +17,7 @@ public class CrittersForCatsCommonConfig {
                 .define("Max Coyotes in a Group", 4);
 
         MAX_WOLF_GROUP = BUILDER.comment("How many Wolves should be able to be in the same pack? Default is 4.")
-                .define("Max Coyotes in a Group", 4);
+                .define("Max Wolves in a Group", 4);
 
         MAX_FOX_GROUP = BUILDER.comment("How many Foxes should be able to be in the same pack? Default is 2.")
                 .define("Max Foxes in a Group", 2);

@@ -45,8 +45,8 @@ public class MouseBurrow extends BurrowRotator {
             Block.box(0, 0, 0, 16, 8, 16)
     ).reduce((v1, v2) -> Shapes.join(v1, v2,BooleanOp.OR)).get();
 
-    private static final Map<Block, Block> BLOCK_BY_BURROW = Maps.newIdentityHashMap();
-    private static final Map<BlockState, BlockState> HOST_TO_BURROW = Maps.newIdentityHashMap();
+    public static final Map<Block, Block> BLOCK_BY_BURROW = Maps.newIdentityHashMap();
+    public static final Map<BlockState, BlockState> HOST_TO_BURROW = Maps.newIdentityHashMap();
 
     public static boolean isCompatibleBurrow(BlockState state) {
         return BLOCK_BY_BURROW.containsKey(state.getBlock());
@@ -119,7 +119,7 @@ public class MouseBurrow extends BurrowRotator {
         });
     }
 
-    private static BlockState getNewStateWithProperties(Map<BlockState, BlockState> stateMap, BlockState state, Supplier<BlockState> supplier) {
+    public static BlockState getNewStateWithProperties(Map<BlockState, BlockState> stateMap, BlockState state, Supplier<BlockState> supplier) {
         return stateMap.computeIfAbsent(state, (p_153429_) -> {
             BlockState blockstate = supplier.get();
 

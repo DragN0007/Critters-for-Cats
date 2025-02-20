@@ -95,11 +95,8 @@ dependencies {
     implementation fg.deobf('software.bernie.geckolib:geckolib-forge-1.20.1:4.4.4')
 
     //Compat
-//    implementation fg.deobf("curse.maven:biomes-o-plenty-220318:4617259")
-//    implementation fg.deobf("curse.maven:glitchcore-955399:5787839")
-//    implementation fg.deobf("curse.maven:terrablender-563928:5378180")
-//    implementation "curse.maven:terralith-513688:5512076"
-    implementation fg.deobf("curse.maven:jade-324717:5876199")
+//    implementation fg.deobf("curse.maven:jade-324717:5876199")
+//    implementation fg.deobf("curse.maven:appleskin-248787:4770828")
 }
 
 tasks.named('processResources', ProcessResources).configure {
