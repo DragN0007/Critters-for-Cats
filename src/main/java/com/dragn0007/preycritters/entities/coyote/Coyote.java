@@ -55,9 +55,10 @@ public class Coyote extends Animal implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 12.0D)
-				.add(Attributes.ATTACK_DAMAGE, 2.5D)
-				.add(Attributes.MOVEMENT_SPEED, 0.20F);
+				.add(Attributes.MAX_HEALTH, 14.0D)
+				.add(Attributes.ATTACK_DAMAGE, 3.0D)
+				.add(Attributes.MOVEMENT_SPEED, 0.20F)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 0.7F);
 	}
 
 	public void registerGoals() {
@@ -109,7 +110,7 @@ public class Coyote extends Animal implements GeoEntity {
 	}
 
 	public void applyStrengthEffect() {
-		MobEffectInstance speedEffectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
+		MobEffectInstance speedEffectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, false, false);
 		this.addEffect(speedEffectInstance);
 	}
 

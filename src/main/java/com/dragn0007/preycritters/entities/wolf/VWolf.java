@@ -58,9 +58,10 @@ public class VWolf extends Animal implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 18.0D)
-				.add(Attributes.ATTACK_DAMAGE, 4D)
-				.add(Attributes.MOVEMENT_SPEED, 0.18F);
+				.add(Attributes.MAX_HEALTH, 24.0D)
+				.add(Attributes.ATTACK_DAMAGE, 4.5D)
+				.add(Attributes.MOVEMENT_SPEED, 0.18F)
+				.add(Attributes.KNOCKBACK_RESISTANCE, 1.0F);
 	}
 
 	public void registerGoals() {
@@ -151,7 +152,7 @@ public class VWolf extends Animal implements GeoEntity {
 	}
 
 	public void applyStrengthEffect() {
-		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 0, false, false);
+		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_BOOST, 200, 1, false, false);
 		this.addEffect(effectInstance);
 	}
 	public boolean hasStrengthEffect() {
@@ -162,7 +163,7 @@ public class VWolf extends Animal implements GeoEntity {
 	}
 
 	public void applyAbsorptionEffect() {
-		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.ABSORPTION, 200, 1, false, false);
+		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.ABSORPTION, 200, 2, false, false);
 		this.addEffect(effectInstance);
 	}
 	public boolean hasAbsorptionEffect() {
@@ -173,7 +174,7 @@ public class VWolf extends Animal implements GeoEntity {
 	}
 
 	public void applyResistanceEffect() {
-		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 0, false, false);
+		MobEffectInstance effectInstance = new MobEffectInstance(MobEffects.DAMAGE_RESISTANCE, 200, 1, false, false);
 		this.addEffect(effectInstance);
 	}
 	public boolean hasResistanceEffect() {

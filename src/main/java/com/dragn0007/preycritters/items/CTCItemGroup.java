@@ -16,7 +16,7 @@ public class CTCItemGroup {
             DeferredRegister.create(Registries.CREATIVE_MODE_TAB, CrittersForCats.MODID);
 
     public static final RegistryObject<CreativeModeTab> PREY_CRITTERS_GROUP = CREATIVE_MODE_TABS.register("preycritters",
-            () -> CreativeModeTab.builder().icon(() -> new ItemStack(CTCItems.MOUSE_SPAWN_EGG.get())).title(Component.translatable("itemGroup.preycritters"))
+            () -> CreativeModeTab.builder().icon(() -> new ItemStack(CTCItems.SMALL_ANIMAL_SKULL_ITEM.get())).title(Component.translatable("itemGroup.preycritters"))
                     .displayItems((displayParameters, output) -> {
 
                         output.accept(CTCItems.MOUSE_SPAWN_EGG.get());
