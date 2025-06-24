@@ -55,7 +55,7 @@ public class Coyote extends Animal implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 14.0D)
+				.add(Attributes.MAX_HEALTH, 70.0D)
 				.add(Attributes.ATTACK_DAMAGE, 3.0D)
 				.add(Attributes.MOVEMENT_SPEED, 0.20F)
 				.add(Attributes.KNOCKBACK_RESISTANCE, 0.7F);

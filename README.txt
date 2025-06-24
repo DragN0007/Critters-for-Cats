@@ -1,1 +1,1 @@
-Critters For Cats (AKA. preycritters) is a mod that adds small, huntable animals for player cats, commissioned by the Visions SMP.
+Critters For Cats (AKA. preycritters) is a mod that adds small, huntable animals for player cats, commissioned by the Second Light SMP.

@@ -2,10 +2,31 @@ package com.dragn0007.preycritters.entities.snake;
 
 import com.dragn0007.preycritters.CrittersForCats;
 import net.minecraft.resources.ResourceLocation;
+import net.minecraft.util.Mth;
+import software.bernie.geckolib.constant.DataTickets;
+import software.bernie.geckolib.core.animatable.model.CoreGeoBone;
+import software.bernie.geckolib.core.animation.AnimationState;
+import software.bernie.geckolib.model.DefaultedEntityGeoModel;
 import software.bernie.geckolib.model.GeoModel;
+import software.bernie.geckolib.model.data.EntityModelData;
 
-public class VenomousSnakeModel extends GeoModel<VenomousSnake> {
+public class VenomousSnakeModel extends DefaultedEntityGeoModel<VenomousSnake> {
 
+    public VenomousSnakeModel() {
+        super(new ResourceLocation(CrittersForCats.MODID, "ven_snake"), true);
+    }
+
+    @Override
+    public void setCustomAnimations(VenomousSnake animatable, long instanceId, AnimationState<VenomousSnake> animationState) {
+
+        CoreGeoBone head = getAnimationProcessor().getBone("head");
+        if (head != null) {
+            EntityModelData entityData = animationState.getData(DataTickets.ENTITY_MODEL_DATA);
+            head.setRotX(head.getRotX() + (entityData.headPitch() * Mth.DEG_TO_RAD));
+            float maxYaw = Mth.clamp(entityData.netHeadYaw(), -25.0f, 25.0f);
+            head.setRotY(head.getRotY() + (maxYaw * Mth.DEG_TO_RAD));
+        }
+    }
     public enum Variant {
         RAT_SNAKE(new ResourceLocation(CrittersForCats.MODID, "textures/entity/snake/snake_adder.png"));
 

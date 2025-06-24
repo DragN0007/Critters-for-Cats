@@ -58,7 +58,7 @@ public class VWolf extends Animal implements GeoEntity {
 
 	public static AttributeSupplier.Builder createAttributes() {
 		return Mob.createMobAttributes()
-				.add(Attributes.MAX_HEALTH, 24.0D)
+				.add(Attributes.MAX_HEALTH, 100.0D)
 				.add(Attributes.ATTACK_DAMAGE, 4.5D)
 				.add(Attributes.MOVEMENT_SPEED, 0.18F)
 				.add(Attributes.KNOCKBACK_RESISTANCE, 1.0F);
